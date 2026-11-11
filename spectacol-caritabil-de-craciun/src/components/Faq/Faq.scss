@@ -1,0 +1,203 @@
+.faq-section {
+  width: 100%;
+  min-height: 860px;
+  background-color: #e6d7bd;
+  padding: 100px 80px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start; /* Aliniere pe stânga pentru text */
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+  }
+}
+
+.faq-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 400px;
+  z-index: 5;
+  position: relative;
+  margin-right: -100px; /* Ajută textul să se suprapună ușor dacă spațiul e mic */
+
+  @media (max-width: 1200px) {
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+}
+
+.faq-subtitle {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 13px;
+  color: #751a1a;
+  letter-spacing: 0.5px;
+}
+
+.faq-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(36px, 5vw, 50px);
+  line-height: 1.12;
+  text-transform: uppercase;
+  color: #33473c;
+  margin: 0;
+}
+
+/* --- Bradul și poziționarea ancorată --- */
+.faq-tree-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px; /* Lățimea de bază a bradului */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.faq-tree-main {
+  width: 100%;
+  height: auto;
+  z-index: 3;
+}
+
+/* --- Containerul pentru Bilețel + Fir --- */
+.faq-item {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: flex-start;
+  width: 250px; /* Lățimea bilețelului */
+  
+  @media (max-width: 1200px) {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Specificități pentru partea stângă */
+.faq-item.left {
+  flex-direction: row-reverse; /* Firul e la dreapta bilețelului */
+  
+  .faq-wire {
+    transform: translate(-10px, -20px); /* Ajustează fin locul unde firul intră în brad */
+  }
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    .faq-wire { display: none; }
+  }
+}
+
+/* Specificități pentru partea dreaptă */
+.faq-item.right {
+  flex-direction: row; /* Firul e la stânga bilețelului */
+  
+  .faq-wire {
+    transform: translate(10px, -20px);
+  }
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    .faq-wire { display: none; }
+  }
+}
+
+/* --- Firul --- */
+.faq-wire {
+  width: 80px; /* Ajustează lungimea firelor SVG */
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* --- Bilețelul propriu-zis --- */
+.faq-card {
+  position: relative;
+  width: 100%;
+  background-color: #e6d7bd;
+  border: 1px solid #9b3534;
+  border-radius: 4px;
+  box-shadow: 0px 4px 10px rgba(51, 71, 60, 0.12);
+  padding: 16px 20px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.faq-card-num {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: 16px;
+  color: #9b3534;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.faq-card-q {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #33473c;
+  margin: 0;
+}
+
+/* Gaura (perforația) */
+.faq-card-hole {
+  position: absolute;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #9b3534;
+}
+
+/* Poziția găurii */
+.faq-item.left .faq-card-hole {
+  right: 12px;
+}
+
+.faq-item.right .faq-card-hole {
+  left: 12px;
+}
+
+.faq-item.right .faq-card {
+  padding-left: 36px;
+  .faq-card-num {
+    position: absolute;
+    top: 16px;
+    left: 36px;
+    margin-bottom: 0;
+  }
+  .faq-card-q {
+    margin-top: 24px;
+  }
+}
+
+/* Normalizare pe mobil (când ascundem firele) */
+@media (max-width: 1200px) {
+  .faq-card {
+    padding: 16px 20px !important;
+  }
+  .faq-card-hole {
+    display: none; 
+  }
+  .faq-item.right .faq-card-num {
+    position: relative;
+    top: auto; left: auto;
+    margin-bottom: 8px;
+  }
+  .faq-item.right .faq-card-q {
+    margin-top: 0;
+  }
+}

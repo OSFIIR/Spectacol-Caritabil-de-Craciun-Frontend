@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cal+Sans:ital,wght@0,400&display=swap');
-/* Dacă ai descărcat fontul FTY SKORZHEN NCV local, amintește-ți că e suficient să îl ai în index.scss */
-
 .gallery {
   width: 100%;
   background-color: #33473c;
@@ -25,7 +22,7 @@
 }
 
 .gallery-subtitle {
-  font-family: 'Cal Sans', sans-serif;
+  font-family: --font-cta;
   font-size: 12px;
   letter-spacing: 0.5px;
 }

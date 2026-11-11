@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans:ital,wght@0,400&display=swap');
+/* Dacă 'FTY SKORZHEN NCV' nu este pe Google Fonts, va trebui să îl adaugi local în folderul /assets/fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500&display=swap');
+
+.hero {
+  width: 100%;
+  min-height: 830px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #f6efdf; /* Culoarea de fundal din spatele ramei, ajusteaz-o la nevoie */
+  padding-top: 100px; /* Spațiu pentru Navbar */
+  box-sizing: border-box;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* "cover" forțează imaginea să umple tot spațiul, tăind proporțional marginile dacă e nevoie, fără să o distorsioneze */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-bow {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 220px;
+  z-index: 3;
+  filter: drop-shadow(1.5px 3px 2.5px rgba(0, 0, 0, 0.4));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 960px;
+  width: 100%;
+}
+
+.hero-subtitle {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 13px;
+  color: #751a1a;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-family: 'FTY SKORZHEN NCV', serif; /* Fontul custom */
+  font-size: clamp(48px, 6vw, 88px); /* Responsiv: se micșorează pe mobile */
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #9b3534;
+  margin: 0 0 24px 0;
+}
+
+.hero-tagline {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: clamp(20px, 3vw, 30px);
+  color: #751a1a;
+  margin: 0 0 24px 0;
+  font-weight: 400;
+}
+
+.hero-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(14px, 2vw, 17px);
+  line-height: 1.5;
+  color: #33473c;
+  margin: 0 0 48px 0;
+}
+
+/* Container-ul Butoanelor */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Pe telefoane, butoanele vor trece unul sub altul */
+}
+
+/* Stilizare generală pentru butoane */
+.btn {
+  border-radius: 20px;
+  padding: 14px 28px;
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: pre-wrap;
+  transition: all 0.3s ease;
+  font-family: 'Cal Sans', sans-serif;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.btn-primary {
+  background-color: #751a1a;
+  color: #e6d7bd;
+  border: 1px solid #751a1a;
+
+  &:hover {
+    background-color: #5c1414;
+    box-shadow: 0 4px 12px rgba(117, 26, 26, 0.2);
+  }
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #751a1a;
+  border: 1px solid #751a1a;
+
+  &:hover {
+    background-color: rgba(117, 26, 26, 0.05);
+  }
+}
+
+.btn-dark {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  background-color: #7c2b2a;
+  color: #f6efdf;
+  border: 1px solid #7c2b2a;
+
+  &:hover {
+    background-color: #5c1a1a;
+    box-shadow: 0 4px 12px rgba(124, 43, 42, 0.2);
+  }
+}

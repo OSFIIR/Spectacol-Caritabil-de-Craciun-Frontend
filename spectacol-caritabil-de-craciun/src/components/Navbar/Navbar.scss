@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans:ital,wght@0,400&display=swap');
+
+.navbar {
+  width: 100%;
+  height: 100px;
+  background-color: #e6d7bd;
+  border-bottom: 1px solid #9b3534;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 80px;
+  gap: 20px;
+  font-family: 'Cal Sans', sans-serif;
+  
+  &-logo {
+    height: 68px;
+    width: 160px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    
+    img {
+      max-height: 100%;
+      width: auto;
+    }
+  }
+
+  &-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-shrink: 0;
+  }
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #33473c;
+  font-size: 15px;
+  position: relative;
+  /* Tranziție fină pentru culoarea textului */
+  transition: color 0.3s ease;
+
+  /* Creăm o subliniere custom, ascunsă inițial (width: 0) */
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%; /* Pornește din centru */
+    background-color: #751a1a;
+    /* Animație fluidă pentru extinderea liniei */
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+
+  &:hover {
+    color: #751a1a;
+
+    &::after {
+      width: 100%;
+      left: 0; /* Se extinde pe toată lățimea */
+    }
+  }
+
+  /* Starea activă păstrează linia extinsă */
+  &.active {
+    color: #751a1a;
+
+    &::after {
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+.btn-donate {
+  border-radius: 4px;
+  background-color: #751a1a;
+  color: #e6d7bd;
+  padding: 14px 24px;
+  font-size: 15px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: pre-wrap;
+  transition: background-color 0.2s ease-in-out, transform 0.1s;
+
+  &:hover {
+    background-color: #5c1414;
+    transform: scale(1.02);
+  }
+}

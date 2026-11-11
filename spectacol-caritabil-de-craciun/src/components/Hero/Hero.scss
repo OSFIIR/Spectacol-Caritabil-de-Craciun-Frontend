@@ -1,8 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cal+Sans:ital,wght@0,400&display=swap');
-/* Dacă 'FTY SKORZHEN NCV' nu este pe Google Fonts, va trebui să îl adaugi local în folderul /assets/fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500&display=swap');
-
 .hero {
   width: 100%;
   min-height: 830px;
@@ -31,7 +26,7 @@
 
 .hero-bow {
   position: absolute;
-  top: 5%;
+  top: 0%;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;

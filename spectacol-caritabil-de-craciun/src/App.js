@@ -1,5 +1,5 @@
 import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
+import Footer from './components/Footer/Footer';
 import {Artists, Donate, Home, Sponsors, Team} from './index.js';
 import {Routes, Route} from 'react-router-dom';
 
@@ -20,6 +20,7 @@ function App() {
     <div className="App">
       <Navbar />
       <AppContent />
+      <Footer />
     </div>
   );
 }

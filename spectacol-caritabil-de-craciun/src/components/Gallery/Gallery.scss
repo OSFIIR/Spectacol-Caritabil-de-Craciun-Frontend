@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans:ital,wght@0,400&display=swap');
+/* Dacă ai descărcat fontul FTY SKORZHEN NCV local, amintește-ți că e suficient să îl ai în index.scss */
+
+.gallery {
+  width: 100%;
+  background-color: #33473c;
+  color: #e6d7bd;
+  padding: 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  overflow: hidden;
+
+  @media (max-width: 968px) {
+    padding: 60px 20px;
+  }
+}
+
+/* --- Partea de sus --- */
+.gallery-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gallery-subtitle {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.gallery-title-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.gallery-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.15;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.gallery-controls {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 15px;
+
+  .gallery-tabs {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .tab {
+      background: none;
+      border: none;
+      color: #e6d7bd;
+      font-family: inherit;
+      font-size: inherit;
+      cursor: pointer;
+      padding: 0;
+      opacity: 0.5;
+      transition: opacity 0.2s ease;
+
+      &.active, &:hover {
+        opacity: 1;
+      }
+    }
+
+    .divider {
+      opacity: 0.5;
+    }
+  }
+
+  .gallery-arrows {
+    cursor: pointer;
+    letter-spacing: 4px;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.gallery-description {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: clamp(15px, 2vw, 17px);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 600px;
+}
+
+/* --- Caruselul cu scroll orizontal nativ --- */
+.gallery-carousel {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  padding-bottom: 10px; /* Ca să nu taie umbrele sau scrollbar-ul (dacă apare) */
+  
+  /* Permite scroll-ul orizontal pe mobil/tablete */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  
+  /* Ascundem scrollbar-ul urât din browser pentru un design curat */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Stilizarea pozelor */
+.gallery-item {
+  margin: 0;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  img {
+    height: 300px;
+    width: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+
+  figcaption {
+    font-family: 'FTY SKORZHEN NCV', serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #e6d7bd;
+  }
+
+  /* Poza lungă = 50% din lățime, minus spațiul alocat gap-ului */
+  &.large {
+    width: calc(50% - 24px);
+    
+    @media (max-width: 768px) {
+      width: 85vw; /* Pe mobil ocupă tot ecranul, le vezi una câte una */
+    }
+  }
+
+  /* Poza scurtă = 25% din lățime, minus spațiul alocat gap-ului */
+  &.small {
+    width: calc(25% - 12px);
+
+    @media (max-width: 768px) {
+      width: 85vw;
+    }
+  }
+}
+
+/* --- Indicator progres jos --- */
+.gallery-progress {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 10px;
+}

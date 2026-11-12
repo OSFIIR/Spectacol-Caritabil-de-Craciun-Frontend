@@ -1,10 +1,14 @@
 import React from "react";
 import "./Team.scss";
 
+import TeamIntro from "../../components/TeamIntro/TeamIntro";
+import Organization from "../../components/Organization/Organization";
+
 const Team = () => {
  return(
   <section className="team-page">
-      Pagina Echipa.
+    <TeamIntro />
+    <Organization />
   </section>
  );
 }

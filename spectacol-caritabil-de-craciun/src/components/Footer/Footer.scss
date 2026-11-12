@@ -1,0 +1,221 @@
+.footer {
+  width: 100%;
+  background-color: #751a1a;
+  color: #e6d7bd;
+  /* Am adăugat un padding-left mai mare ca să împingem tot footerul spre dreapta pe desktop */
+  padding: 80px 80px 40px 120px; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  @media (max-width: 968px) {
+    padding: 60px 20px 30px 20px;
+    gap: 50px;
+  }
+}
+
+/* --- Conținutul principal impartit in coloane --- */
+.footer-content {
+  display: flex;
+  justify-content: flex-start; /* Aliniat spre stânga/dreapta cu spațiu controlat prin gap */
+  align-items: flex-start;
+  /* Aici am mărit considerabil gap-ul general dintre coloane, 
+     iar între logo și contacte va fi o distanță mult mai mare */
+  gap: 120px; 
+  width: 100%;
+
+  @media (max-width: 1200px) {
+    gap: 60px;
+  }
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+  }
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Coloana 1: Logo */
+.logo-col {
+  flex: 0 0 340px; /* Fixăm o dimensiune ca să aibă spațiu stabil */
+
+  .footer-logo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+/* Coloana 2: Contact */
+.contact-col {
+  flex: 1;
+  /* Am adăugat un margin-left suplimentar doar pentru rândul de contacte 
+     ca să mărim și mai mult distanța față de logo */
+  margin-left: 30px; 
+  gap: 22px;
+
+  @media (max-width: 968px) {
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Cal Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+    }
+  }
+}
+
+/* Coloana 3: Semnătură și Meniu */
+.signature-col {
+  flex: 1.5;
+  gap: 30px; /* Ușor ajustat ca să facă loc și iconițelor */
+  margin-left: auto; /* Împinge blocul din dreapta spre marginea opusă, creând un design aerisit */
+
+  @media (max-width: 968px) {
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .signature {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .signature-title {
+      font-family: 'FTY SKORZHEN NCV', serif;
+      font-size: clamp(32px, 4vw, 44px);
+      line-height: 1.15;
+      text-transform: uppercase;
+      margin: 0;
+      color: #e6d7bd;
+    }
+
+    .signature-subtitle {
+      font-family: 'Cal Sans', sans-serif;
+      font-size: 15px;
+      margin: 0;
+      opacity: 0.9;
+    }
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 32px;
+    
+    @media (max-width: 480px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    a {
+      font-family: 'Cal Sans', sans-serif;
+      font-size: 15px;
+      color: #e6d7bd;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .social-links {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aliniat la stânga pe desktop pentru a se potrivi cu meniul de deasupra */
+    gap: 50px; /* Am mărit distanța (gap-ul) dintre iconițe de la 20px la 28px */
+    margin-top: 14px; /* Spațiu confortabil față de meniul de deasupra */
+
+    @media (max-width: 968px) {
+      justify-content: center; /* Centrat automat pe mobil/tabletă */
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        opacity: 0.75;
+      }
+    }
+
+    .social-icon {
+      font-size: 22px;   /* Un strop mai mari și mai moderne */
+      color: #e6d7bd;    /* Culoarea specifică bej */
+    }
+  }
+}
+
+/* --- Partea de jos (Copyright) --- */
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+.footer-separator {
+  width: 100%;
+  height: 1px;
+  background-color: #e6d7bd;
+  opacity: 0.22;
+}
+
+.footer-legal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 12px;
+  opacity: 0.8;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .legal-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    white-space: pre-wrap;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

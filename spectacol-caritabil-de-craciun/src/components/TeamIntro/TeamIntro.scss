@@ -1,0 +1,130 @@
+/* --- Secțiunea Principală --- */
+.team-section {
+  width: 100%;
+  position: relative;
+  background-color: #33473c;
+  color: #e6d7bd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* --- Containerul de Sus (Intro + Stickere) --- */
+.team-intro-container {
+  width: 100%;
+  position: relative;
+  background-color: #33473c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 100px 80px 40px 80px;
+  box-sizing: border-box;
+  isolation: isolate;
+
+  @media (max-width: 968px) {
+    padding: 80px 20px 30px 20px;
+  }
+}
+
+/* --- Conținutul Text --- */
+.team-content {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  z-index: 2;
+}
+
+.team-tag {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.team-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(40px, 6vw, 76px);
+  line-height: 1.12;
+  text-transform: uppercase;
+  margin: 0;
+  color: #e6d7bd;
+}
+
+.team-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.55;
+  margin: 0;
+  opacity: 0.95;
+  max-width: 800px;
+}
+
+/* --- Stickere Decorative --- */
+.team-sticker {
+  position: absolute;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 1;
+
+  &.sticker-left {
+    width: 200px;
+    top: 15%;
+    left: 5%;
+    filter: drop-shadow(2px 4px 5px rgba(0, 0, 0, 0.4));
+    transform: rotate(-20deg);
+  }
+
+  &.sticker-right {
+    width: 240px;
+    top: 35%;
+    right: 3%;
+    filter: drop-shadow(2px 4px 5px rgba(0, 0, 0, 0.4));
+    transform: rotate(40deg);
+  }
+
+  @media (max-width: 1200px) {
+    display: none; /* Ascundem stickerele pe ecrane medii/mici ca să nu acopere textul */
+  }
+}
+
+/* --- Containerul Fotografiei --- */
+.team-photo-container {
+  width: 100%;
+  background-color: #33473c;
+  display: flex;
+  justify-content: center;
+  padding: 0 80px 80px 80px;
+  box-sizing: border-box;
+
+  @media (max-width: 968px) {
+    padding: 0 20px 60px 20px;
+  }
+}
+
+/* --- Fotografia Echipei (Colțuri rotunjite asimetrice specifice designului) --- */
+.team-photo {
+  width: 100%;
+  max-width: 1280px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 64px 0px 64px 0px;
+  display: block;
+
+  @media (max-width: 968px) {
+    height: 350px;
+    border-radius: 32px 0px 32px 0px;
+  }
+
+  @media (max-width: 480px) {
+    height: 240px;
+  }
+}

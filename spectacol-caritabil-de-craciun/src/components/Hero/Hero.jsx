@@ -3,6 +3,15 @@ import backgroundFrame from '../../assets/svg/frame-hero.svg'; // Asigură-te c�
 import bowSticker from '../../assets/svg/bow-sticker.svg'; // Fundița de sus
 import './Hero.scss';
 
+const scrollToAbout = (e) => {
+  e.preventDefault(); // Oprește "săritura" instantanee nativă a link-ului
+  const aboutSection = document.getElementById('about');
+  
+  if (aboutSection) {
+    aboutSection.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const Hero = () => {
   return (
     <section className="hero">
@@ -29,7 +38,7 @@ const Hero = () => {
           <Link to="/donate" className="btn btn-primary">
             Vreau să ajut ↗
           </Link>
-          <a href="#about" className="btn btn-secondary">
+          <a href="#about" className="btn btn-secondary" onClick={scrollToAbout}>
             Descoperă spectacolul ↓
           </a>
           <Link to="/artists" className="btn btn-dark">

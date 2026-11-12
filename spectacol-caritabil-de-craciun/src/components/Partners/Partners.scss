@@ -1,0 +1,132 @@
+/* --- Secțiunea Principală --- */
+.partners-section {
+  width: 100%;
+  background-color: #e6d7bd; /* Fundal bej specific designului */
+  color: #751a1a;
+  padding: 100px 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  text-align: left;
+  font-family: 'Cal Sans', sans-serif;
+
+  @media (max-width: 968px) {
+    padding: 60px 20px;
+  }
+}
+
+/* --- Etichetă Sus --- */
+.partners-tag {
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* --- Containerul Principal (2 Coloane) --- */
+.partners-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 80px;
+  width: 100%;
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+
+/* --- Coloana Stângă --- */
+.partners-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 660px;
+}
+
+.partners-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(38px, 5vw, 54px);
+  line-height: 1.12;
+  text-transform: uppercase;
+  color: #33473c;
+  margin: 0;
+}
+
+.partners-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: #33473c;
+  margin: 0;
+  opacity: 0.9;
+  max-width: 590px;
+}
+
+/* --- Coloana Dreaptă --- */
+.partners-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 520px;
+  padding-top: 10px;
+
+  @media (max-width: 968px) {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* --- Rândurile cu Beneficii --- */
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 19px;
+  color: #33473c;
+  line-height: 150%;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(117, 26, 26, 0.15); /* Linie fină separatoare */
+
+  .benefit-num {
+    color: #751a1a;
+    font-weight: bold;
+    opacity: 0.8;
+  }
+
+  .benefit-text {
+    white-space: pre-wrap;
+  }
+}
+
+/* --- Butonul de Parteneriat --- */
+.partners-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  margin-top: 10px;
+  border-radius: 4px;
+  background-color: #751a1a;
+  color: #e6d7bd;
+  text-decoration: none;
+  padding: 16px 28px;
+  font-size: 15px;
+  font-family: 'Cal Sans', sans-serif;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0px 4px 10px rgba(51, 71, 60, 0.1);
+
+  &:hover {
+    transform: translateY(-3px);
+    opacity: 0.95;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%; /* Pe mobil butonul ocupă toată lățimea */
+  }
+}

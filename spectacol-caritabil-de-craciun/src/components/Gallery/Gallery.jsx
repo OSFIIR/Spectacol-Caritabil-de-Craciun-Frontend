@@ -88,7 +88,7 @@ const Gallery = () => {
       </div>
 
       <div className="gallery-progress">
-        01 — 07 &nbsp;&nbsp;&nbsp; ━
+        01 — 07
       </div>
     </section>
   );

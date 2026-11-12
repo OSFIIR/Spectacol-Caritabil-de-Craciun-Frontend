@@ -2,34 +2,40 @@
   width: 100%;
   min-height: 860px;
   background-color: #e6d7bd;
-  padding: 100px 80px;
+  padding: 129px 20px 51px 20px; 
   box-sizing: border-box;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start; /* Aliniere pe stânga pentru text */
-  position: relative;
+  justify-content: center;
   overflow: hidden;
-
-  @media (max-width: 1200px) {
-    flex-direction: column;
-    align-items: center;
-    padding: 60px 20px;
-  }
 }
 
+.faq-container {
+  width: 100%;
+  max-width: 1400px;
+  position: relative;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+/* --- Textele din stânga --- */
 .faq-intro {
+  position: absolute;
+  top: 0;
+  left: 20px; 
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  max-width: 400px;
+  gap: 16px;
   z-index: 5;
-  position: relative;
-  margin-right: -100px; /* Ajută textul să se suprapună ușor dacă spațiul e mic */
+  width: 300px; 
 
   @media (max-width: 1200px) {
+    position: relative;
+    left: auto;
     text-align: center;
-    margin-right: 0;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+    align-items: center;
+    width: 100%;
   }
 }
 
@@ -49,14 +55,14 @@
   margin: 0;
 }
 
-/* --- Bradul și poziționarea ancorată --- */
+/* --- Bradul --- */
 .faq-tree-wrapper {
   position: relative;
   width: 100%;
-  max-width: 500px; /* Lățimea de bază a bradului */
-  margin: 0 auto;
+  max-width: 500px; 
   display: flex;
   justify-content: center;
+  padding-top: 40px; 
 }
 
 .faq-tree-main {
@@ -65,82 +71,82 @@
   z-index: 3;
 }
 
-/* --- Containerul pentru Bilețel + Fir --- */
+/* --- Containerul Părinte --- */
 .faq-item {
   position: absolute;
   z-index: 4;
-  display: flex;
-  align-items: flex-start;
-  width: 250px; /* Lățimea bilețelului */
-  
-  @media (max-width: 1200px) {
-    position: relative;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: 100%;
-    max-width: 350px;
-    margin-bottom: 20px;
-  }
 }
 
-/* Specificități pentru partea stângă */
-.faq-item.left {
-  flex-direction: row-reverse; /* Firul e la dreapta bilețelului */
-  
-  .faq-wire {
-    transform: translate(-10px, -20px); /* Ajustează fin locul unde firul intră în brad */
-  }
-
-  @media (max-width: 1200px) {
-    flex-direction: column;
-    .faq-wire { display: none; }
-  }
+.faq-item:hover {
+  z-index: 100;
 }
 
-/* Specificități pentru partea dreaptă */
-.faq-item.right {
-  flex-direction: row; /* Firul e la stânga bilețelului */
-  
-  .faq-wire {
-    transform: translate(10px, -20px);
-  }
-
-  @media (max-width: 1200px) {
-    flex-direction: column;
-    .faq-wire { display: none; }
-  }
-}
-
-/* --- Firul --- */
+/* --- Sârmele SVG ancorate corect --- */
 .faq-wire {
-  width: 80px; /* Ajustează lungimea firelor SVG */
+  position: absolute;
+  width: 80px;
   height: auto;
   object-fit: contain;
   pointer-events: none;
+  z-index: 1;
 }
 
-/* --- Bilețelul propriu-zis --- */
+/* Pentru cardurile din stânga, sârma stă lipită de marginea lor din DREAPTA (spre brad) */
+.faq-item.left .faq-wire {
+  right: -60px; 
+}
+
+/* Pentru cardurile din dreapta, sârma stă lipită de marginea lor din STÂNGA (spre brad) */
+.faq-item.right .faq-wire {
+  left: -60px;
+}
+
+/* --- Cardul propriu-zis --- */
 .faq-card {
   position: relative;
-  width: 100%;
+  z-index: 2;
+  width: max-content; 
   background-color: #e6d7bd;
   border: 1px solid #9b3534;
   border-radius: 4px;
   box-shadow: 0px 4px 10px rgba(51, 71, 60, 0.12);
-  padding: 16px 20px;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
+  cursor: pointer;
+  
+  display: flex;
+  /* Eliminat transform: translateY. Acum doar umbra se schimbă */
+  transition: box-shadow 0.4s ease; 
 }
+
+/* La HOVER: Doar adăugăm umbră, NU mai sare în sus! */
+.faq-item:hover .faq-card {
+  box-shadow: 0px 8px 20px rgba(51, 71, 60, 0.3);
+}
+
+.faq-item.left .faq-card {
+  flex-direction: row-reverse; 
+}
+.faq-item.right .faq-card {
+  flex-direction: row; 
+}
+
+/* --- Partea 1: Întrebarea --- */
+.faq-card-header {
+  width: 250px;
+  flex-shrink: 0; 
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.faq-item.left .faq-card-header { padding: 16px 28px 16px 20px; }
+.faq-item.right .faq-card-header { padding: 16px 20px 16px 28px; }
 
 .faq-card-num {
   font-family: 'FTY SKORZHEN NCV', serif;
   font-size: 16px;
   color: #9b3534;
-  display: block;
   margin-bottom: 8px;
 }
 
@@ -150,54 +156,104 @@
   line-height: 1.4;
   color: #33473c;
   margin: 0;
+  font-weight: bold;
 }
 
-/* Gaura (perforația) */
+/* --- Partea 2: Răspunsul --- */
+.faq-card-answer {
+  width: 0;
+  overflow: hidden; 
+  transition: width 0.4s ease;
+  display: flex;
+  align-items: center;
+  background-color: #e6d7bd;
+}
+
+.faq-item:hover .faq-card-answer {
+  width: 250px; 
+}
+
+.faq-item.left:hover .faq-card-answer {
+  border-right: 1px dashed rgba(155, 53, 52, 0.3);
+}
+.faq-item.right:hover .faq-card-answer {
+  border-left: 1px dashed rgba(155, 53, 52, 0.3);
+}
+
+.faq-card-answer p {
+  width: 250px; 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 16px 20px;
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #33473c; 
+  flex-shrink: 0;
+}
+
+/* =========================================
+   Detalii de asamblare (Gaura) 
+   ========================================= */
 .faq-card-hole {
   position: absolute;
-  top: 12px;
+  top: 18px; 
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background-color: #9b3534;
+  z-index: 10;
 }
 
-/* Poziția găurii */
-.faq-item.left .faq-card-hole {
-  right: 12px;
+.faq-item.left .faq-card-hole { right: 12px; }
+.faq-item.right .faq-card-hole { left: 12px; }
+
+.faq-item.right .faq-card-num {
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
-.faq-item.right .faq-card-hole {
-  left: 12px;
-}
-
-.faq-item.right .faq-card {
-  padding-left: 36px;
-  .faq-card-num {
-    position: absolute;
-    top: 16px;
-    left: 36px;
-    margin-bottom: 0;
-  }
-  .faq-card-q {
-    margin-top: 24px;
-  }
-}
-
-/* Normalizare pe mobil (când ascundem firele) */
+/* =========================================
+   Adaptare pentru Mobil / Tablete 
+   ========================================= */
 @media (max-width: 1200px) {
-  .faq-card {
-    padding: 16px 20px !important;
-  }
-  .faq-card-hole {
-    display: none; 
-  }
-  .faq-item.right .faq-card-num {
+  .faq-item {
     position: relative;
-    top: auto; left: auto;
-    margin-bottom: 8px;
+    top: auto !important;
+    left: auto !important; right: auto !important;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 20px;
   }
-  .faq-item.right .faq-card-q {
-    margin-top: 0;
+
+  .faq-wire { display: none; }
+
+  .faq-card { 
+    width: 100% !important; 
+    flex-direction: column !important;
   }
+
+  .faq-card-header {
+    width: 100% !important;
+  }
+
+  .faq-card-answer {
+    width: 100% !important;
+    max-height: 0; 
+    transition: max-height 0.4s ease;
+  }
+
+  .faq-item:hover .faq-card-answer {
+    max-height: 200px;
+    border: none !important;
+  }
+
+  .faq-card-answer p {
+    width: 100%;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(155, 53, 52, 0.3);
+  }
+
+  .faq-card-hole { display: none; }
 }

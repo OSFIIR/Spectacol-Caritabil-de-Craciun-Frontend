@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans:ital,wght@0,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500&display=swap');
+
+:root {
+  --font-title: 'FTY SKORZHEN NCV', sans-serif;
+  --font-paragraph: 'Montserrat', sans-serif;
+  --font-cta: 'DM Sans', sans-serif;
+
+  --primary-color: #E6D7BD;
+  --secondary-color-first: #33473C;
+  --secondary-color-second: #751A1A;
+  --primary-accents: #9B3534; 
+}
+
 @font-face {
   font-family: 'FTY SKORZHEN NCV';
   src: url('./assets/fonts/fty-skorzhen.ttf') format('truetype');
@@ -6,24 +21,13 @@
   font-display: swap;
 }
 
-body {
-  	margin: 0; line-height: normal;
-}
-
-
-
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
 

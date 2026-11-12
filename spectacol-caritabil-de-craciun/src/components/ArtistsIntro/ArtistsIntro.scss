@@ -1,0 +1,130 @@
+/* --- Container Principal --- */
+.artists-intro {
+  width: 100%;
+  min-height: 700px;
+  background-color: #33473c;
+  color: #e6d7bd;
+  padding: 100px 80px;
+  box-sizing: border-box;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  overflow: hidden;
+
+  /* Adaptare pe tablete și mobil */
+  @media (max-width: 968px) {
+    flex-direction: column;
+    padding: 60px 20px;
+    text-align: center;
+    gap: 80px;
+  }
+}
+
+/* --- Coloana din Stânga (Text) --- */
+.artists-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 650px;
+
+  @media (max-width: 968px) {
+    align-items: center;
+  }
+}
+
+.artists-subtitle {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.artists-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(40px, 6vw, 80px); /* Scalează fin pe ecrane diferite */
+  line-height: 1.12;
+  text-transform: uppercase;
+  margin: 0 0 40px 0;
+}
+
+.artists-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(16px, 2vw, 18px);
+  line-height: 1.55;
+  margin: 0;
+  opacity: 0.9;
+}
+
+
+/* --- Coloana din Dreapta (Bilețelul) --- */
+.artists-cause {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.cause-card {
+  position: relative;
+  width: 100%;
+  max-width: 516px; /* Dimensiunea reală a SVG-ului din Figma */
+  display: flex;
+  justify-content: center;
+}
+
+/* Fundalul bilețelului */
+.cause-bg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Pioneza iese puțin în afara biletului */
+.cause-pin {
+  position: absolute;
+  top: -50px; /* Ridică pioneza peste marginea de sus */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24%;
+  height: auto;
+  z-index: 2;
+  filter: drop-shadow(3px 6px 5px rgba(0, 0, 0, 0.4));
+}
+
+/* Textul scris PESTE imaginea SVG a bilețelului */
+.cause-content {
+  position: absolute;
+  top: 15%; /* Coborâm sub pioneză */
+  width: 80%; /* Nu lăsăm textul să atingă marginile SVG-ului */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+}
+
+.cause-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(24px, 3vw, 32px);
+  color: #9b3534;
+  margin: 0 0 20px 0;
+  
+  /* Varianta cu Border (cea mai sigură și curată) */
+  text-decoration: none; 
+  border-bottom: 2px solid #9b3534;
+  padding-bottom: 4px; /* Controlezi exact la ce distanță stă linia de text */
+}
+
+.cause-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #33473c;
+  margin: 0;
+}

@@ -1,0 +1,94 @@
+/* --- Secțiunea Principală --- */
+.organization-section {
+  width: 100%;
+  background-color: #e6d7bd; /* Fundal bej specific */
+  color: #751a1a;
+  padding: 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  text-align: left;
+  font-family: 'Cal Sans', sans-serif;
+
+  @media (max-width: 1200px) {
+    padding: 60px 40px;
+  }
+
+  @media (max-width: 968px) {
+    padding: 60px 20px;
+  }
+}
+
+/* --- Etichetă Sus --- */
+.organization-tag {
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* --- Containerul Grid (Cele 3 coloane) --- */
+.organization-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+/* --- Cardul Individual --- */
+.org-card {
+  flex: 1;
+  width: 100%;
+  max-width: 400px;
+  border-top: 1px solid #9b3534; /* Linia de sus specifică designului */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 22px;
+  gap: 22px;
+  transition: transform 0.3s ease;
+
+  /* Efect fin de ridicare la hover */
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  @media (max-width: 968px) {
+    max-width: 100%;
+  }
+}
+
+/* --- Numărul (01, 02, 03) --- */
+.org-number {
+  font-size: 12px;
+  line-height: 150%;
+  color: #751a1a;
+}
+
+/* --- Titlul Echipei (Organizare, Comunicare, Voluntari) --- */
+.org-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: 30px;
+  line-height: 1.12;
+  text-transform: uppercase;
+  color: #9b3534;
+  margin: 0;
+}
+
+/* --- Descrierea --- */
+.org-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: #33473c;
+  margin: 0;
+  max-width: 370px;
+}

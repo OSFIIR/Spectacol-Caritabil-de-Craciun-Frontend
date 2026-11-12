@@ -1,0 +1,138 @@
+/* --- Secțiunea Principală --- */
+.schedule-section {
+  width: 100%;
+  background-color: #33473c;
+  color: #e6d7bd;
+  padding: 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  text-align: left;
+  font-family: 'Cal Sans', sans-serif;
+
+  @media (max-width: 968px) {
+    padding: 60px 20px;
+    gap: 30px;
+  }
+}
+
+/* --- Tag-ul de sus --- */
+.schedule-header-tag {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+/* --- Titlul și Subtitlul din Header --- */
+.schedule-header-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(230, 215, 189, 0.2);
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+.schedule-main-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(36px, 5vw, 48px);
+  line-height: 1.12;
+  text-transform: uppercase;
+  margin: 0;
+  color: #e6d7bd;
+}
+
+.schedule-subtitle {
+  font-size: 13px;
+  line-height: 150%;
+  opacity: 0.85;
+}
+
+/* --- Lista de rânduri --- */
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* --- Un singur rând din program --- */
+.schedule-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(230, 215, 189, 0.15);
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+  cursor: default;
+
+  /* Efect fin de hover pe rând */
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding-left: 30px; /* Împinge ușor rândul spre dreapta la hover */
+  }
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px 10px;
+
+    &:hover {
+      padding-left: 10px; /* Dezactivăm deplasarea laterală pe mobil */
+    }
+  }
+}
+
+/* --- Numărul (01, 02, 03) --- */
+.schedule-number {
+  font-size: 18px;
+  line-height: 150%;
+  opacity: 0.7;
+  min-width: 60px;
+
+  @media (max-width: 968px) {
+    min-width: auto;
+  }
+}
+
+/* --- Titlul Pasului (Bun venit, etc.) --- */
+.schedule-item-title {
+  width: 350px;
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: 26px;
+  line-height: 1.12;
+  text-transform: uppercase;
+  margin: 0;
+  color: #e6d7bd;
+  flex-shrink: 0;
+
+  @media (max-width: 968px) {
+    width: 100%;
+    font-size: 22px;
+  }
+}
+
+/* --- Descrierea --- */
+.schedule-desc {
+  flex: 1;
+  max-width: 600px;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.9;
+  font-family: 'Cal Sans', sans-serif;
+
+  @media (max-width: 968px) {
+    max-width: 100%;
+  }
+}

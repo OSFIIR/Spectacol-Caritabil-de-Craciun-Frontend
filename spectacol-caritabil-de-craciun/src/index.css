@@ -29,5 +29,18 @@
   text-decoration: none;
 }
 
+/* Ascunde absolut orice tip de cursor nativ pe întregul document */
+html, body, *, 
+*::before, *::after, 
+*:hover, *:active, *:focus, 
+*:focus-within, *:focus-visible, 
+input, button, a, textarea, select {
+  cursor: none !important;
+}
+
+/* Previne evidențierea textului accidentală la dublu click rapid care uneori declanșează cursorul de text */
+html {
+  -webkit-tap-highlight-color: transparent;
+}
 
 

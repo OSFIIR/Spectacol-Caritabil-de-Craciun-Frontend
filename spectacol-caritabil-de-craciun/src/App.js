@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import {Artists, Donate, Home, Sponsors, Team} from './index.js';
+import CustomCursor from './components/CustomCursor/CustomCursor';
 import {Routes, Route} from 'react-router-dom';
 
 function AppContent() {
@@ -18,6 +19,7 @@ function AppContent() {
 function App() {
   return (
     <div className="App">
+      <CustomCursor />
       <Navbar />
       <AppContent />
       <Footer />

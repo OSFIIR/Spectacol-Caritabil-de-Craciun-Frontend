@@ -1,0 +1,178 @@
+/* --- Secțiunea principală cu dungile de fundal --- */
+.donate-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  
+  background: repeating-linear-gradient(
+    90deg,
+    #751a1a,
+    #751a1a 80px,
+    #e6d7bd 80px,
+    #e6d7bd 160px
+  );
+}
+
+/* --- Containerul "Plachetei" folosind proporțiile tale (1473x878) --- */
+.donate-plaque-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1473px; /* Dimensiunea exactă din Figma */
+  aspect-ratio: 1473 / 878; /* Păstrează proporțiile perfect pe orice ecran */
+  filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.3)); /* Umbra ta */
+  margin: 0 auto;
+
+  transform: scale(1.20);
+
+  @media (max-width: 968px) {
+    aspect-ratio: auto;
+    height: auto;
+  }
+}
+
+/* --- SVG-ul de Fundal (cu procentele tale din .coninutDonaieChild) --- */
+.plaque-svg-bg {
+  position: absolute;
+  top: 3.76%;
+  right: 3.77%;
+  bottom: 3.82%;
+  left: 5.97%;
+  width: 90.25%;
+  height: 92.43%;
+  z-index: 0;
+  object-fit: fill; /* Umple strict box-ul procentual dat */
+}
+
+/* --- Conținutul (suprapus perfect peste zona SVG-ului) --- */
+.plaque-content {
+  position: absolute;
+  top: 7%; 
+  left: 7%;
+  width: 86%; 
+  height: 86%;
+  z-index: 1; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4% 6%; /* Spațiu intern compensat pentru a nu atinge marginile SVG-ului */
+  box-sizing: border-box;
+  gap: 30px;
+
+  @media (max-width: 968px) {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+}
+
+/* --- Coloana Stângă (Text) --- */
+.donate-text-col {
+  flex: 1.1; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrează Titlul și Subtitlul */
+  text-align: center;
+  gap: 16px;
+  max-width: 580px; /* Puțin redus ca să nu se întindă prea mult spre margini */
+}
+
+.donate-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(32px, 4vw, 56px); 
+  line-height: 1.1;
+  color: #751a1a;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.donate-subtitle {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: clamp(16px, 1.8vw, 22px);
+  line-height: 1.4;
+  color: #751a1a;
+  margin: 0;
+}
+
+/* --- Cutia "Albastră" (Descriere stânga, Buton dreapta) --- */
+.desc-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Împinge butonul la marginea din dreapta */
+  text-align: left;      /* Menține textul aliniat la stânga */
+  margin-top: 10px;
+}
+
+.donate-desc {
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(13px, 1.4vw, 16px);
+  line-height: 1.6;
+  color: #33473c;
+  margin: 0 0 20px 0; /* Spațiu între text și buton */
+}
+
+/* --- Butonul 'Vezi cauza' --- */
+.donate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #751a1a;
+  color: #e6d7bd;
+  text-decoration: none;
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 15px;
+  padding: 14px 32px;
+  border-radius: 20px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+  }
+}
+
+/* --- Coloana Dreaptă (Formularul) --- */
+.donate-form-col {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.donate-form-container {
+  width: 100%;
+  max-width: 440px; /* Redus ușor ca să respire mai bine */
+  height: 75%; /* Ajustat ca să nu lovească marginile de sus/jos ale SVG-ului */
+  max-height: 550px;
+  min-height: 440px;
+  border: 5px solid #1a3327; 
+  background-color: #ffffff; 
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .form-placeholder {
+    opacity: 0.5;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+}

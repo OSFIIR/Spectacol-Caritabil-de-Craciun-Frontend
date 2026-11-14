@@ -9,6 +9,7 @@ const Team = () => {
  return(
   <section className="team-page">
     <TeamIntro />
+    {/*<ComingSoon />*/}
     <Organization />
   </section>
  );

@@ -3,6 +3,7 @@ import "./Artists.scss";
 import ArtistIntro from "../../components/ArtistsIntro/ArtistsIntro";
 import ArtistsCarousel from "../../components/ArtistsCarousel/ArtistsCarousel";
 import Schedule from "../../components/Schedule/Schedule";
+import ComingSoon from "../../components/ComingSoon/ComingSoon";
 
 const Artists = () => {
  return(
@@ -10,6 +11,7 @@ const Artists = () => {
     <ArtistIntro />
     <ArtistsCarousel />
     <Schedule />
+    {/*<ComingSoon />*/}
   </section>
  );
 }

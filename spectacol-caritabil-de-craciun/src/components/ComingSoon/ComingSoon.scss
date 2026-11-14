@@ -1,0 +1,86 @@
+/* --- Secțiunea principală cu fundalul în dungi --- */
+.coming-soon-section {
+  width: 100%;
+  
+  /* Se va întinde pe tot ecranul, scăzând navbar-ul (presupus 80px) */
+  min-height: calc(100vh - 80px); 
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  
+  /* Fundalul tău iconic în dungi vișinii și bej */
+  background: repeating-linear-gradient(
+    90deg,
+    #751a1a,
+    #751a1a 80px,
+    #e6d7bd 80px,
+    #e6d7bd 160px
+  );
+}
+
+/* --- Cardul central elegant --- */
+.coming-soon-card {
+  background-color: #e6d7bd;
+  border: 6px solid #1a3327; /* Verdele tău închis */
+  border-radius: 16px;
+  padding: 60px 40px;
+  
+  max-width: 600px;
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+  
+  /* O umbră fină pentru a ieși în evidență de pe fundal */
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+  
+  /* Ajustare padding pentru mobil */
+  @media (max-width: 768px) {
+    padding: 40px 20px;
+  }
+}
+
+/* --- Textele --- */
+.coming-soon-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(40px, 5vw, 64px); 
+  line-height: 1.1;
+  color: #751a1a;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.coming-soon-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(14px, 1.5vw, 16px); 
+  line-height: 1.6;
+  color: #33473c;
+  margin: 0 0 10px 0; /* Spațiu extra până la buton */
+}
+
+/* --- Butonul de întoarcere --- */
+.coming-soon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a3327; /* Folosim verdele pentru a crea contrast */
+  color: #e6d7bd;
+  text-decoration: none;
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 16px;
+  padding: 14px 32px; 
+  border-radius: 30px;
+  transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-3px);
+    opacity: 0.95;
+    background-color: #751a1a; /* La hover se face vișiniu */
+  }
+}

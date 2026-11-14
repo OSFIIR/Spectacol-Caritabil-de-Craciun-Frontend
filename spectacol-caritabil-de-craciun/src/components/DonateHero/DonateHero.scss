@@ -1,7 +1,7 @@
-/* --- Secțiunea principală cu dungile de fundal --- */
+/* --- Secțiunea principală --- */
 .donate-section {
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,76 +17,106 @@
   );
 }
 
-/* --- Containerul "Plachetei" folosind proporțiile tale (1473x878) --- */
+/* --- Containerul "Plachetei" --- */
 .donate-plaque-wrapper {
   position: relative;
-  width: 100%;
-  max-width: 1473px; /* Dimensiunea exactă din Figma */
-  aspect-ratio: 1473 / 878; /* Păstrează proporțiile perfect pe orice ecran */
-  filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.3)); /* Umbra ta */
+  width: 96%; 
+  max-width: 1450px; 
+  aspect-ratio: 1473 / 878; 
   margin: 0 auto;
+  
+  /* AM MĂRIT GAP-UL DE SUS (Am schimbat de la -70px la -20px) */
+  margin-top: -60px; 
+  
+  filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.25)); 
 
-  transform: scale(1.20);
-
-  @media (max-width: 968px) {
-    aspect-ratio: auto;
+  /* MOBIL: Setăm proporțiile pentru SVG-ul vertical */
+  @media (max-width: 1200px) {
+    aspect-ratio: 380 / 1150; /* O proporție mult mai înaltă, ca în Figma */
+    min-height: 1050px; /* Spațiu suficient pentru formularul fix de 530px + text */
     height: auto;
+    margin-top: 20px;
   }
 }
 
-/* --- SVG-ul de Fundal (cu procentele tale din .coninutDonaieChild) --- */
+/* --- SVG-ul de Fundal --- */
 .plaque-svg-bg {
   position: absolute;
-  top: 3.76%;
-  right: 3.77%;
-  bottom: 3.82%;
-  left: 5.97%;
-  width: 90.25%;
-  height: 92.43%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
   z-index: 0;
-  object-fit: fill; /* Umple strict box-ul procentual dat */
+  object-fit: contain; 
+  pointer-events: none;
 }
 
-/* --- Conținutul (suprapus perfect peste zona SVG-ului) --- */
+/* --- Conținutul (text + formular) --- */
 .plaque-content {
   position: absolute;
-  top: 7%; 
-  left: 7%;
-  width: 86%; 
-  height: 86%;
+  top: 11%; 
+  left: 8%; 
+  width: 84%; 
+  height: 78%; 
   z-index: 1; 
   display: flex;
-  justify-content: space-between;
+  justify-content: center; 
   align-items: center;
-  padding: 4% 6%; /* Spațiu intern compensat pentru a nu atinge marginile SVG-ului */
+  padding: 0; 
   box-sizing: border-box;
-  gap: 30px;
+  gap: 46px; 
 
-  @media (max-width: 968px) {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
+  /* MOBIL: Ajustăm încadrarea în interiorul zonei bej a SVG-ului */
+  @media (max-width: 1200px) {
+    position: absolute; 
+    top: 7%; /* Ușor mai jos pentru a nu lovi marginea de sus */
+    left: 8%; /* Mărim marginea laterală pentru a ține textul departe de vișiniu */
+    width: 84%; /* Restrângem lățimea totală a conținutului */
+    height: 86%;
     flex-direction: column;
-    padding: 40px 20px;
+    justify-content: flex-start;
+    padding: 10px 0; /* Reducem padding-ul */
+    background-color: transparent;
+    border: none;
+    margin-top: 0;
+    gap: 20px; /* Reducem distanța dintre text și formular pentru a economisi spațiu vertical */
   }
 }
 
 /* --- Coloana Stângă (Text) --- */
 .donate-text-col {
-  flex: 1.1; 
+  width: 100%;
+  max-width: 460px; 
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centrează Titlul și Subtitlul */
+  align-items: center; 
+  justify-content: center;
   text-align: center;
-  gap: 16px;
-  max-width: 580px; /* Puțin redus ca să nu se întindă prea mult spre margini */
+  gap: 22px; 
+
+  /* MOBIL: Micșorăm puțin distanțele dintre textele interne */
+  @media (max-width: 1200px) {
+    gap: 15px; 
+  }
+}
+
+/* --- Coloana Stângă (Text) --- */
+.donate-text-col {
+  width: 100%;
+  max-width: 460px; 
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  text-align: center;
+  
+  gap: 22px; 
 }
 
 .donate-title {
   font-family: 'FTY SKORZHEN NCV', serif;
-  font-size: clamp(32px, 4vw, 56px); 
+  font-size: clamp(32px, 3.8vw, 52px); 
   line-height: 1.1;
   color: #751a1a;
   margin: 0;
@@ -95,29 +125,33 @@
 
 .donate-subtitle {
   font-family: 'Cal Sans', sans-serif;
-  font-size: clamp(16px, 1.8vw, 22px);
+  font-size: clamp(16px, 1.8vw, 24px); 
   line-height: 1.4;
-  color: #751a1a;
+  color: #1a3327;
   margin: 0;
 }
 
-/* --- Cutia "Albastră" (Descriere stânga, Buton dreapta) --- */
+/* --- Cutia cu Paragraful și Butonul --- */
 .desc-box {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Împinge butonul la marginea din dreapta */
-  text-align: left;      /* Menține textul aliniat la stânga */
-  margin-top: 10px;
+  align-items: center; 
+  text-align: left; 
+  margin-top: 8px; 
+
+  @media (max-width: 1200px) {
+    text-align: center;
+  }
 }
 
 .donate-desc {
   width: 100%;
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(13px, 1.4vw, 16px);
-  line-height: 1.6;
+  font-size: clamp(13px, 1.2vw, 15px); 
+  line-height: 1.5;
   color: #33473c;
-  margin: 0 0 20px 0; /* Spațiu între text și buton */
+  margin: 0 0 28px 0; 
 }
 
 /* --- Butonul 'Vezi cauza' --- */
@@ -130,8 +164,8 @@
   text-decoration: none;
   font-family: 'Cal Sans', sans-serif;
   font-size: 15px;
-  padding: 14px 32px;
-  border-radius: 20px;
+  padding: 14px 32px; 
+  border-radius: 30px;
   transition: transform 0.2s ease, opacity 0.2s ease;
   
   &:hover {
@@ -142,37 +176,73 @@
 
 /* --- Coloana Dreaptă (Formularul) --- */
 .donate-form-col {
-  flex: 1;
+  width: 100%;
+  max-width: 420px; 
   display: flex;
+  align-items: center; 
   justify-content: center;
-  align-items: center;
   height: 100%;
+  transform: translateY(-4px); 
+
+  @media (max-width: 1200px) {
+    transform: none;
+    
+    /* Păstrăm lățimea de 100% dar ne asigurăm că flexbox-ul 
+       îl ține perfect centrat pe orizontală */
+    width: 100%; 
+    max-width: 100%; 
+    margin: 0 auto; 
+    height: auto; 
+  }
 }
 
 .donate-form-container {
   width: 100%;
-  max-width: 440px; /* Redus ușor ca să respire mai bine */
-  height: 75%; /* Ajustat ca să nu lovească marginile de sus/jos ale SVG-ului */
-  max-height: 550px;
-  min-height: 440px;
-  border: 5px solid #1a3327; 
+  height: 100%; 
+  max-height: 530px; 
+  min-height: 480px; 
+  
+  border: 4px solid #1a3327; 
   background-color: #ffffff; 
   box-sizing: border-box;
-  overflow: hidden;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  
+  /* Păstrăm scroll-ul pentru a putea naviga în interior */
+  overflow-y: auto; 
+  overflow-x: hidden;
+  
+  border-radius: 12px;
+  display: block; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+  
+  -webkit-overflow-scrolling: touch;
 
-  iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
+  @media (max-width: 1200px) {
+    /* MOBIL: Puțin mai scurt ca să nu iasă jos (430px în loc de 450px sau 530px) */
+    height: 430px !important;
+    min-height: 430px !important;
+    max-height: 430px !important;
+    
+    /* Asigură-te că și containerul propriu-zis este centrat */
+    margin: 0 auto;
   }
 
-  .form-placeholder {
-    opacity: 0.5;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+  dbox-widget {
+    width: 100%;
+    min-height: 650px; 
+    display: block; 
+  }
+  
+  /* --- STILIZARE BARA DE SCROLL ELEGANTĂ --- */
+  &::-webkit-scrollbar {
+    width: 6px; 
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #1a3327; 
+    border-radius: 8px;
   }
 }

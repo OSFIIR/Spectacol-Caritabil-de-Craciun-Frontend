@@ -1,19 +1,34 @@
-import fundalSvg from '../../assets/svg/fundal-donatie.svg'; // Asigură-te că numele e corect
+import { useEffect } from 'react';
+import fundalSvg from '../../assets/svg/fundal-donatie.svg';
+import fundalMobilSvg from '../../assets/svg/fundal-donatie-telefon.svg';
 import './DonateHero.scss';
 
 const DonateHero = () => {
+  
+  useEffect(() => {
+    // Încărcăm scriptul Donorbox
+    const scriptId = 'donorbox-widget-script';
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.type = 'module';
+      script.src = 'https://donorbox.org/widgets.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <section className="donate-section">
-      
       <div className="donate-plaque-wrapper">
         
-        {/* SVG-ul de fundal plasat cu procentele tale din Figma */}
-        <img src={fundalSvg} alt="" className="plaque-svg-bg" aria-hidden="true" />
+        <picture>
+          <source media="(max-width: 1200px)" srcSet={fundalMobilSvg} />
+          <img src={fundalSvg} alt="" className="plaque-svg-bg" aria-hidden="true" />
+        </picture>
         
-        {/* Conținutul real, suprapus exact peste zona SVG-ului */}
         <div className="plaque-content">
           
-          {/* Coloana Stângă - Text */}
           <div className="donate-text-col">
             <h1 className="donate-title">
               TRANSFORMĂ<br />EMOȚIA<br />ÎN SPERANȚĂ.
@@ -23,7 +38,6 @@ const DonateHero = () => {
               Fiecare gest contează. Fii parte din<br />spectacolul care schimbă vieți.
             </h2>
             
-            {/* Cutia albastră din Figma: text aliniat la stânga, buton la dreapta */}
             <div className="desc-box">
               <p className="donate-desc">
                 Fiecare gest contează, iar generozitatea ta poate transforma emoția
@@ -41,15 +55,19 @@ const DonateHero = () => {
             </div>
           </div>
 
-          {/* Coloana Dreaptă - Formularul */}
           <div className="donate-form-col">
-            <div className="donate-form-container">
-              {/* IFRAME-UL SAU FORMULARUL AICI */}
-              <div className="form-placeholder">
-                Formular Donație<br />
-                <span>(Iframe Donorbox / Alt sistem)</span>
-              </div>
-            </div>
+            {/* 
+                Folosim dangerouslySetInnerHTML pentru a fenta React-ul.
+                Acest lucru previne "crash-ul" (eroarea roșie pe care ai avut-o), 
+                permite butoanelor Stripe/Link să funcționeze corect 
+                și păstrează enable-auto-scroll="false" ca să nu sară pagina! 
+            */}
+            <div 
+              className="donate-form-container"
+              dangerouslySetInnerHTML={{
+                __html: `<dbox-widget campaign="spectacol-caritabil-de-craciun-2026" type="donation_form" enable-auto-scroll="false"></dbox-widget>`
+              }}
+            />
           </div>
           
         </div>

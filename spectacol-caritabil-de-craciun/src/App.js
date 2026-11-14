@@ -7,7 +7,6 @@ import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import ScrollTop from './hooks/ScrollTop.jsx';
 import { useGlobalSwipe } from './hooks/useGlobalSwipe.jsx';
 
-// Ordinea exactă din meniu: Acasă, Artiști, Sponsori, Echipa (fără donare)
 const ROUTES_ORDER = ['/', '/artists', '/sponsors', '/team'];
 
 function AppContent() {

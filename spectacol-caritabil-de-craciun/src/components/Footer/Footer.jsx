@@ -73,7 +73,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="footer-separator" />
         <div className="footer-legal">
-          <p>© Spectacolul Caritabil. Toate drepturile rezervate.</p>
+          <p>© Spectacolul Caritabil 2026. Toate drepturile rezervate.</p>
           <div className="legal-links">
             <Link to="/privacy">Confidențialitate</Link>
             <span className="dot">·</span>

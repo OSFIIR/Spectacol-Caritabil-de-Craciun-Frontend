@@ -1,4 +1,13 @@
+# The React app lives in a subdirectory of this repository.
+[build]
+base = "spectacol-caritabil-de-craciun"
+# Create React App outputs to "build" (relative to the base directory).
+publish = "build"
+# CI=false keeps CRA from treating lint warnings as build errors.
+command = "npm ci && CI=false npm run build"
+
+# Client-side routing (React Router): serve index.html for all paths.
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/*"
+to = "/index.html"
+status = 200

@@ -42,4 +42,25 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- Previne selectarea (highlight-ul) textului pe tot site-ul --- */
+*, *::before, *::after {
+  -webkit-user-select: none; /* Pentru Safari/Chrome */
+  -moz-user-select: none;    /* Pentru Firefox */
+  -ms-user-select: none;     /* Pentru Edge */
+  user-select: none;         /* Standard */
+}
+
+/* EXCEPȚIE VITALĂ: Lăsăm utilizatorii să selecteze text în formulare 
+   (altfel nu vor putea scrie sau copia/șterge text în formularul de donații!) */
+input, textarea, select {
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+}
+
 

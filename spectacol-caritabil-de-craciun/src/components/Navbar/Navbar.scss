@@ -44,6 +44,9 @@
   position: relative;
   padding: 4px 0;
   transition: color 0.3s ease;
+  
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
 
   &::after {
     content: '';
@@ -56,12 +59,14 @@
     transition: width 0.3s ease, left 0.3s ease;
   }
 
-  &:hover {
-    color: var(--secondary-color-second);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--secondary-color-second);
 
-    &::after {
-      width: 100%;
-      left: 0;
+      &::after {
+        width: 100%;
+        left: 0;
+      }
     }
   }
 
@@ -88,10 +93,15 @@
   flex-shrink: 0;
   white-space: nowrap;
   transition: background-color 0.2s ease-in-out, transform 0.15s ease;
+  
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
 
-  &:hover {
-    background-color: var(--primary-accents);
-    transform: scale(1.02);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--primary-accents);
+      transform: scale(1.02);
+    }
   }
 }
 

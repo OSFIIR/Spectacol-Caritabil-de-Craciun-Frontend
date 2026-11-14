@@ -1,34 +1,58 @@
-import { useEffect, useRef } from 'react';
-import treeSvg from '../../assets/svg/brad-faq.svg'; // Pune calea corectă către bradul tău SVG
+import { useEffect, useRef, useState } from 'react';
+import treeSvg from '../../assets/svg/brad-faq.svg';
 import './CustomCursor.scss';
 
-// Acesta este hook-ul care urmărește mouse-ul
-const useCustomCursor = (cursorRef) => {
+const useCustomCursor = (cursorRef, isDesktop) => {
   useEffect(() => {
     const cursor = cursorRef.current;
-    if (!cursor) return;
+    
+    // Dacă nu e desktop sau nu există cursorul, ne oprim aici
+    if (!cursor || !isDesktop) return;
 
     const moveCursor = (e) => {
-      // translate3d folosește placa video pentru mișcare ultra-fluidă
       cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
     };
 
-    // Ascultăm evenimentul de mișcare a mouse-ului
-    window.addEventListener('mousemove', moveCursor);
+    const handleMouseDown = () => {
+      cursor.classList.add('cursor-clicked');
+    };
 
-    // Curățăm evenimentul când componenta este distrusă
+    const handleMouseUp = () => {
+      cursor.classList.remove('cursor-clicked');
+    };
+
+    window.addEventListener('mousemove', moveCursor);
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mouseup', handleMouseUp);
+
     return () => {
       window.removeEventListener('mousemove', moveCursor);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [cursorRef]);
+  }, [cursorRef, isDesktop]);
 };
 
-// Componenta care afișează bradul
 const CustomCursor = () => {
   const cursorRef = useRef(null);
   
-  // Apelăm hook-ul de mai sus
-  useCustomCursor(cursorRef);
+  // Detectăm dacă dispozitivul are un mouse real (Desktop/Laptop)
+  const [isDesktop, setIsDesktop] = useState(
+    typeof window !== 'undefined' ? window.matchMedia('(pointer: fine)').matches : true
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(pointer: fine)');
+    const handleChange = (e) => setIsDesktop(e.matches);
+    
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+  
+  useCustomCursor(cursorRef, isDesktop);
+
+  // Dacă NU este desktop (adică este pe telefon/tabletă), nu afișăm nimic!
+  if (!isDesktop) return null;
 
   return (
     <div className="custom-cursor" ref={cursorRef}>

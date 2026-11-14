@@ -1,14 +1,18 @@
+/* --- Secțiunea Principală --- */
 .about-show {
   width: 100%;
   min-height: 597px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; 
   padding: 100px 80px;
   box-sizing: border-box;
-  gap: 60px;
+  gap: 40px; 
   position: relative;
   overflow: hidden;
+  
+  /* Ajustează unde se oprește scroll-ul ca să nu fie tăiat sus de meniu */
+  scroll-margin-top: 100px; 
 
   /* Adaptare pentru tablete și telefoane */
   @media (max-width: 968px) {
@@ -16,6 +20,7 @@
     padding: 60px 20px;
     gap: 40px;
     text-align: center;
+    scroll-margin-top: 100px;
   }
 }
 
@@ -62,7 +67,7 @@
 
 /* Butonul cu contur */
 .btn-outline {
-  border-radius: 4px; /* Setarea din Figma */
+  border-radius: 4px;
   border: 1px solid #751a1a;
   color: #751a1a;
   padding: 14px 24px;
@@ -88,35 +93,13 @@
 }
 
 /* --- Secțiunea Vizuală --- */
-.about-show {
-  width: 100%;
-  min-height: 597px;
-  display: flex;
-  align-items: center;
-  /* Folosim center în loc de space-between pentru a controla noi exact distanța prin gap */
-  justify-content: center; 
-  padding: 100px 80px;
-  box-sizing: border-box;
-  gap: 40px; /* Am redus gap-ul de la 60px la 40px. Dacă îl vrei și mai aproape, pune 20px sau 30px */
-  position: relative;
-  overflow: hidden;
-
-  @media (max-width: 968px) {
-    flex-direction: column;
-    padding: 60px 20px;
-    gap: 40px;
-    text-align: center;
-  }
-}
-
-/* Dacă vrei ca imaginea să fie puțin mai lată și să "vină" spre text */
 .about-visuals {
   flex: 1;
   position: relative;
   display: flex;
-  justify-content: flex-start; /* Schimbat din flex-end ca să tragă poza spre centrul ecranului/spre text */
+  justify-content: flex-start;
   align-items: center;
-  max-width: 680px; /* Am mărit puțin limita, de la 640px */
+  max-width: 680px;
 
   @media (max-width: 968px) {
     justify-content: center;
@@ -129,18 +112,15 @@
   max-width: 640px;
   height: auto;
   object-fit: cover;
-  
-  /* Tăiem noi colțul stânga-sus masiv din cod, fără să ne mai batem capul cu transparența pozei! */
-  border-radius: 100px 4px 4px 4px; /* Ajustează 100px mai mult sau mai puțin dacă e nevoie */
-  
+  border-radius: 100px 4px 4px 4px; 
 }
 
 .about-sticker {
   position: absolute;
   width: 35%; 
   max-width: 250px;
-  bottom: -15%; /* Trage sticker-ul în jos față de imagine */
-  right: -5%; /* Îl trage ușor în afara imaginii spre dreapta */
+  bottom: -15%;
+  right: -5%;
   filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.4));
   object-fit: contain;
 

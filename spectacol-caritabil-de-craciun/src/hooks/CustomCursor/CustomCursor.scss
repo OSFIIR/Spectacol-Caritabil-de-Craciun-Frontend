@@ -27,3 +27,19 @@
     filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.4));
   }
 }
+
+/* Ascunde cursorul nativ DOAR pe dispozitivele cu mouse (Desktop/Laptop) */
+@media (pointer: fine) {
+  html, body, *, 
+  *::before, *::after, 
+  *:hover, *:active, *:focus, 
+  *:focus-within, *:focus-visible, 
+  input, button, a, textarea, select {
+    cursor: none !important;
+  }
+}
+
+/* Oprește highlight-ul albastru inestetic când apeși pe butoane pe telefon */
+html {
+  -webkit-tap-highlight-color: transparent;
+}

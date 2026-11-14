@@ -68,9 +68,14 @@
   letter-spacing: 1px;
 }
 
+/* Ascundem săgețile pe mobil */
 .carousel-controls {
   display: flex;
   gap: 16px;
+
+  @media (max-width: 968px) {
+    display: none;
+  }
 }
 
 .control-btn {
@@ -90,7 +95,7 @@
 }
 
 /* =========================================
-   CONTAINERELE CARUSELULUI (Centrarea)
+   CONTAINERELE CARUSELULUI (Slide / Centrare)
    ========================================= */
 .carousel-track {
   display: flex;
@@ -99,26 +104,30 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Scroll fluid pe iOS */
   
   scrollbar-width: none; 
   &::-webkit-scrollbar { display: none; }
 }
 
-/* O singură "pagină" care ține 3 artiști (garantează centrarea) */
+/* O singură "pagină" care ține artiștii */
 .carousel-page {
-  min-width: 100%; /* Fiecare pagină ocupă tot ecranul vizibil */
+  min-width: 100%;
   flex-shrink: 0;
   display: flex;
-  justify-content: center; /* ACEASTA ESTE CENTRAREA PERFECTĂ A CELOR 3 CARDURI */
+  justify-content: center;
   align-items: flex-start;
   gap: 31px;
   scroll-snap-align: start;
 
-  /* Adaptare pe telefoane (punem artiștii din pagină în coloană) */
+  /* Pentru a activa slide-ul pe mobil, NU le mai punem în coloană.
+     Le lăsăm pe orizontală, reducând doar gap-ul, permițând utilizatorului 
+     să dea swipe stânga-dreapta */
   @media (max-width: 1200px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
+    /* Modificat: Le lăsăm flex-direction: row și ajustăm gap-ul */
+    justify-content: flex-start; /* Aliniere la stânga pentru a lăsa spațiu de scroll */
+    padding: 0 10px; /* Padding de siguranță la margini */
+    gap: 20px;
   }
 }
 
@@ -135,9 +144,9 @@
   align-items: center;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
   
-  /* Pentru a tăia marginile overlay-ului negru dacă SVG-ul tău are colțuri rotunjite */
   border-radius: 20px; 
   overflow: hidden; 
+  scroll-snap-align: center; /* Centrare la swipe pe mobil */
 }
 
 .artist-card:hover {
@@ -177,7 +186,6 @@
   z-index: 2;
 }
 
-/* La hover pe card, overlay-ul devine vizibil */
 .artist-card:hover .artist-overlay {
   opacity: 1;
 }
@@ -190,7 +198,6 @@
   text-align: center;
   margin: 0;
   
-  /* Efect fin de intrare de jos în sus */
   transform: translateY(20px);
   transition: transform 0.4s ease;
 }
@@ -202,7 +209,7 @@
 /* --- NUMELE ARTISTULUI --- */
 .artist-name-box {
   position: absolute;
-  bottom: 20%; /* Ajustează dacă nu pică fix pe cutia din SVG */
+  bottom: 20%; 
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
@@ -213,20 +220,24 @@
   color: #e6d7bd; 
   letter-spacing: 1px;
   
-  /* Z-INDEX 3: Super important ca să stea mereu LUMINOS peste overlay-ul negru (care are 2) */
   z-index: 3; 
   pointer-events: none; 
 }
 
-/* Adaptare pe telefoane */
+/* Adaptare pe telefoane (Dimensiuni și Poziție Nume) */
 @media (max-width: 480px) {
   .artist-card {
+    /* Mărim lățimea relativ la ecran pentru a ocupa mai mult loc în vizor 
+       și adăugăm un aspect-ratio clar ca să nu se spargă SVG-ul */
     width: 85vw;
     height: auto;
-    aspect-ratio: 406 / 605; 
+    aspect-ratio: 406 / 605.6; 
   }
   
   .artist-name-box {
     font-size: 18px; 
+    /* Am urcat textul de la 20% la 23% pentru a-l centra mai bine 
+       în interiorul cutiei roșii de pe SVG */
+    bottom: 17.2%; 
   }
 }

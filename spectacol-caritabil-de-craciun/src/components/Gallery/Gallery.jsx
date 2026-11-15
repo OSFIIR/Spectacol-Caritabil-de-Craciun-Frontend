@@ -182,7 +182,7 @@ const Gallery = () => {
               playsInline
               title="Atmosfera"
             />
-            <figcaption>Atmosfera</figcaption>
+            <figcaption>Moment video 2</figcaption>
           </figure>
 
           <figure className="gallery-item">
@@ -193,7 +193,7 @@ const Gallery = () => {
               playsInline
               title="Spectacol Complet"
             />
-            <figcaption>Spectacol complet</figcaption>
+            <figcaption>Moment video 3</figcaption>
           </figure>
         </div>
       </div>

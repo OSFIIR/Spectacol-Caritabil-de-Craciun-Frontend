@@ -1,0 +1,19 @@
+name: spectacol-craciun
+services:
+  web:
+    image: spectacol-craciun:${APP_VERSION:-local}
+    build: .
+    ports:
+      - "127.0.0.1:18083:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 5s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

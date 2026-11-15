@@ -2,42 +2,77 @@
 <html lang="ro">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+
+    <title>Spectacol Caritabil de Crăciun | OSFIIR</title>
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Participă la Spectacolul Caritabil de Crăciun organizat de OSFIIR (Politehnica București). O seară de muzică, tradiții și solidaritate pentru o cauză nobilă."
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta
+      name="keywords"
+      content="
+        Spectacol Caritabil de Craciun, Spectacol Caritabil de Crăciun, OSFIIR, caritate, Politehnica Bucuresti, FIIR,
+        eveniment, eveniment caritabil, caritabil Craciun, donatii, donații, Universitatea Națională de Știință și Tehnologie Politehnica București,
+        UNSTPB, Facultatea de Inginerie Industrială și Robotică, Aula Magna Politehnica București,
+        București, 8 decembrie, 8 decembrie 2026, Sector 6, 2026,
+        concert de Crăciun, spectacol de Crăciun, concert caritabil, muzică de Crăciun, colinde, tradiții de Crăciun,
+        organizație studențească, studenți Politehnica, studenți UNSTPB, voluntariat, voluntari, strângere de fonduri,
+        campanie caritabilă, cauză nobilă, solidaritate, ajută și tu, fapte bune, eveniment studențesc, Crăciun 2026,
+        bilete spectacol, program spectacol, artiști invitați, evenimente București, evenimente de Crăciun București,
+        Christmas Charity Show, Christmas Charity Concert, charity event, charity show, charity concert, charity Bucharest,
+        Christmas show, Christmas concert, Christmas carols, Christmas traditions, Christmas 2026,
+        fundraising, fundraising event, fundraiser, donations, donate, volunteering, volunteers, solidarity, good cause, noble cause,
+        student organization, student event, students of Politehnica Bucharest, University Politehnica of Bucharest,
+        National University of Science and Technology Politehnica Bucharest, Faculty of Industrial Engineering and Robotics,
+        Politehnica Bucharest Great Hall, Aula Magna, Bucharest, Romania, December 8, December 8 2026,
+        tickets, event program, guest artists, events in Bucharest, Christmas events in Bucharest, things to do in Bucharest in December"
+    />
+    <meta name="author" content="OSFIIR" />
+    <meta name="robots" content="index, follow" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Spectacol Caritabil de Craciun</title>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ro_RO" />
+    <meta property="og:site_name" content="Spectacol Caritabil de Crăciun - OSFIIR" />
+    <meta property="og:title" content="Spectacol Caritabil de Crăciun | OSFIIR" />
+    <meta
+      property="og:description"
+      content="Vino alături de OSFIIR la Spectacolul Caritabil de Crăciun! Descoperă programul, artiștii și cum poți susține cauza caritabilă a acestui an."
+    />
+
+    <!-- Schema.org Event -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Spectacol Caritabil de Crăciun - OSFIIR",
+        "description": "Spectacol caritabil anual de Crăciun organizat de Organizația Studenților din Facultatea de Inginerie Industrială și Robotică (OSFIIR).",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+          "@type": "Place",
+          "name": "Universitatea Națională de Știință și Tehnologie Politehnica București",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "București",
+            "addressCountry": "RO"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "OSFIIR",
+          "url": "https://osfiir.ro"
+        }
+      }
+    </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>Trebuie să activezi JavaScript pentru a vizualiza această aplicație.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

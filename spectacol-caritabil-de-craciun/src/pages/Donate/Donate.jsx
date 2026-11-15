@@ -7,7 +7,9 @@ const Donate = () => {
  return(
   <section className="donate-page">
     <DonateHero />
-    <ComingSoon />
+    <div id="cauza">
+      <ComingSoon />
+    </div>
   </section>
  );
 }

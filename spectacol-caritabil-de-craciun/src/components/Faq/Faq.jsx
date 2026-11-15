@@ -139,7 +139,7 @@ const Faq = () => {
             <FaqCard
               num="02"
               question="Care este cauza pentru care se strâng banii?"
-              answer="Anul acesta susținem asociația X pentru a ajuta copiii din medii defavorizate să aibă acces la educație."
+              answer="În acest moment suntem în căutarea cauzei pe care o vom susține anul acesta, analizând cu atenție toate opțiunile pentru a face cea mai bună alegere și a aduce o schimbare reală."
               side="right"
               top={35}
               left={79}

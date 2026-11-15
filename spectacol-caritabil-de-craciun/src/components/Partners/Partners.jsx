@@ -38,7 +38,7 @@ const Partners = () => {
           </div>
 
           {/* Butonul de acțiune */}
-          <a href="#contact" className="partners-btn">
+          <a href="/donate" className="partners-btn">
             Vreau să devin partener &nbsp; ↗
           </a>
         </div>

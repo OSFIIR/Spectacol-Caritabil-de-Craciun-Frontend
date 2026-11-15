@@ -259,21 +259,47 @@
   }
 }
 
-/* --- CARUSEL FILMĂRI (UN SINGUR VIDEO PE ECRAN) --- */
+/* --- CARUSEL FILMĂRI (UNUL SINGUR, CENTRAT PERFECT) --- */
 .videos-carousel {
-  gap: 0; /* Zero gap = sari fix din video în video */
+  gap: 0; /* Scoatem gap-ul ca să treacă exact de la un video la altul (100% lățime) */
 
   .gallery-item {
-    /* Ocupă 100% lățime mereu, și pe desktop și pe mobil */
+    /* Fiecare container de video ocupă tot ecranul (1 per swipe) */
     flex: 0 0 100%; 
-    scroll-snap-align: start; 
+    scroll-snap-align: center; /* Când dai swipe, se oprește fix pe mijloc */
     
-    img { 
-      height: 480px; 
+    /* Centram conținutul în interiorul spațiului */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    
+    video { 
+      /* Controlăm lățimea video-ului ca să nu fie un gigant pe desktop */
+      width: 85%; 
+      max-width: 900px;
+      height: auto;
+      aspect-ratio: 16 / 9; /* Păstrează proporția ideală de cinema/YouTube */
+      
+      border-radius: 12px;
+      object-fit: cover;
+      
+      /* Stilizare asortată */
+      border: 3px solid #1a3327; 
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      background-color: #000;
+      outline: none;
+    }
+
+    figcaption {
+      margin-top: 20px;
     }
 
     @media (max-width: 768px) {
-      img { height: 260px; } /* Înălțime mai mică pe mobil */
+      video { 
+        width: 100%; /* Pe mobil îl lăsăm să umple tot spațiul disponibil */
+        border: 2px solid #1a3327;
+      }
     }
   }
 }

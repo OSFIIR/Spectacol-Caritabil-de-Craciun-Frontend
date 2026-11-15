@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import atmosferaImg from '../../assets/photos/atmosfera.png'; // Asigură-te că ai poza salvată aici
+import atmosferaImg from '../../assets/photos/poza1.JPG'; // Asigură-te că ai poza salvată aici
 import ilexSticker from '../../assets/svg/sticker-ilex.svg'; // Sticker-ul cu frunzele de ilex
 import './AboutShow.scss';
 

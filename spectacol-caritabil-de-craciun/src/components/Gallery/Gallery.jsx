@@ -1,7 +1,13 @@
 import { useRef, useState, useEffect } from 'react';
-import img1 from '../../assets/photos/scena.png';
-import img2 from '../../assets/photos/lumina.png';
-import img3 from '../../assets/photos/impreuna.png';
+import img1 from '../../assets/photos/poza2.JPG';
+import img2 from '../../assets/photos/poza3.JPG';
+import img3 from '../../assets/photos/poza4.jpg';
+import img4 from '../../assets/photos/poza6.JPG';
+import img5 from '../../assets/photos/poza5.JPG';
+import img6 from '../../assets/photos/poza7.JPG';
+import video1 from '../../assets/videos/video1.mp4';
+import video2 from '../../assets/videos/video2.mp4';
+import video3 from '../../assets/videos/video3.mp4';
 import './Gallery.scss';
 
 const Gallery = () => {
@@ -9,6 +15,10 @@ const Gallery = () => {
   const videosRef = useRef(null);
   const [activeTab, setActiveTab] = useState('photos');
   const [isMobile, setIsMobile] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Setăm câte elemente avem în fiecare tab
+  const totalItems = activeTab === 'photos' ? 6 : 3;
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -17,10 +27,38 @@ const Gallery = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Formatează cifrele (adaugă 0 în față pentru < 10)
+  const formatNumber = (num) => {
+    return num < 10 ? `0${num}` : num;
+  };
+
+  // Când schimbăm tab-ul, resetăm indexul la 0 și ducem scroll-ul la început
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    setCurrentIndex(0);
+    
+    const currentRef = tab === 'photos' ? photosRef : videosRef;
+    if (currentRef.current) {
+      currentRef.current.scrollLeft = 0;
+    }
+  };
+
+  // Urmărim progresul de scroll (merge perfect și la swipe pe mobil)
+  const handleScroll = (e) => {
+    const { scrollLeft, scrollWidth, clientWidth } = e.target;
+    const maxScroll = scrollWidth - clientWidth;
+    
+    if (maxScroll <= 0) return;
+    
+    const scrollPercentage = scrollLeft / maxScroll;
+    // Calculăm pe ce element ne aflăm în funcție de procentajul de scroll
+    const index = Math.round(scrollPercentage * (totalItems - 1));
+    setCurrentIndex(index);
+  };
+
   const scroll = (direction) => {
     const currentRef = activeTab === 'photos' ? photosRef : videosRef;
     if (currentRef.current) {
-      // Dăm scroll fix cât este lățimea vizibilă a caruselului
       const scrollAmount = direction === 'left' 
         ? -currentRef.current.clientWidth 
         : currentRef.current.clientWidth;
@@ -42,20 +80,20 @@ const Gallery = () => {
             <span className="gallery-tabs">
               <button 
                 className={`tab ${activeTab === 'photos' ? 'active' : ''}`}
-                onClick={() => setActiveTab('photos')}
+                onClick={() => handleTabChange('photos')}
               >
                 Fotografii
               </button> 
               <span className="divider">/</span>
               <button 
                 className={`tab ${activeTab === 'videos' ? 'active' : ''}`}
-                onClick={() => setActiveTab('videos')}
+                onClick={() => handleTabChange('videos')}
               >
                 Filmări
               </button>
             </span>
             
-            {/* Săgețile minimaliste */}
+            {/* Săgețile minimaliste pe desktop */}
             {!isMobile && (
               <div className="gallery-arrows">
                 <button 
@@ -88,6 +126,7 @@ const Gallery = () => {
         <div 
           className={`gallery-carousel photos-carousel ${activeTab === 'photos' ? 'active' : 'hidden'}`} 
           ref={photosRef}
+          onScroll={handleScroll}
         >
           <figure className="gallery-item large">
             <img src={img1} alt="Pe scenă" loading="lazy" />
@@ -103,43 +142,65 @@ const Gallery = () => {
           </figure>
 
           <figure className="gallery-item large">
-            <img src={img2} alt="Magia scenei" loading="lazy" />
+            <img src={img4} alt="Magia scenei" loading="lazy" />
             <figcaption>Magia scenei</figcaption>
           </figure>
           <figure className="gallery-item small">
-            <img src={img1} alt="Bucuria muzicii" loading="lazy" />
+            <img src={img5} alt="Bucuria muzicii" loading="lazy" />
             <figcaption>Bucuria muzicii</figcaption>
           </figure>
           <figure className="gallery-item small">
-            <img src={img3} alt="Voluntarii noștri" loading="lazy" />
+            <img src={img6} alt="Voluntarii noștri" loading="lazy" />
             <figcaption>Voluntarii noștri</figcaption>
           </figure>
           
           <div className="carousel-spacer"></div>
         </div>
 
-        {/* CARUSEL 2: FILMĂRI (Aici am lăsat doar item-ul curat, va fi 1 pe ecran) */}
+        {/* CARUSEL 2: FILMĂRI */}
         <div 
           className={`gallery-carousel videos-carousel ${activeTab === 'videos' ? 'active' : 'hidden'}`} 
           ref={videosRef}
+          onScroll={handleScroll}
         >
           <figure className="gallery-item">
-            <img src={img2} alt="Moment Video 1" loading="lazy" />
+            <video 
+              src={video1} 
+              controls 
+              preload="metadata" 
+              playsInline
+              title="Moment Video 1"
+            />
             <figcaption>Moment video 1</figcaption>
           </figure>
+
           <figure className="gallery-item">
-            <img src={img3} alt="Atmosfera" loading="lazy" />
+            <video 
+              src={video2} 
+              controls 
+              preload="metadata" 
+              playsInline
+              title="Atmosfera"
+            />
             <figcaption>Atmosfera</figcaption>
           </figure>
+
           <figure className="gallery-item">
-            <img src={img1} alt="Spectacol Complet" loading="lazy" />
+            <video 
+              src={video3} 
+              controls 
+              preload="metadata" 
+              playsInline
+              title="Spectacol Complet"
+            />
             <figcaption>Spectacol complet</figcaption>
           </figure>
         </div>
       </div>
 
+      {/* TEXTUL DINAMIC: ex. 01 — 06 sau 01 — 03 */}
       <div className="gallery-progress">
-        01 — 06
+        {formatNumber(currentIndex + 1)} — {formatNumber(totalItems)}
       </div>
     </section>
   );

@@ -76,7 +76,7 @@ const ArtistsCarousel = () => {
           <h3 className="carousel-subtitle">Arta de a dărui</h3>
         </div>
         <div className="header-center">
-          <h2 className="carousel-title">HEADLINERS</h2>
+          <h2 className="carousel-title">INVITAȚI SPECIALI</h2>
         </div>
         <div className="header-right">
       

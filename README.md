@@ -23,4 +23,4 @@ Aplicația are scopul de a prezenta evenimentul, artiștii, sponsorii echipei ș
 
 1. Clonează repository-ul:
    ```bash
-   git clone [link-ul-tau-aici]
+   git clone https://github.com/OSFIIR/Spectacol-Caritabil-de-Craciun-Frontend

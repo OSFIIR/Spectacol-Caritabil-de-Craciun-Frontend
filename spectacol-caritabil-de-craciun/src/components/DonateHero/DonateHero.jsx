@@ -6,7 +6,7 @@ import './DonateHero.scss';
 const DonateHero = () => {
   
   useEffect(() => {
-    // Încărcăm scriptul Donorbox
+    // Încărcăm scriptul Donorbox pentru varianta de desktop
     const scriptId = 'donorbox-widget-script';
     if (!document.getElementById(scriptId)) {
       const script = document.createElement('script');
@@ -56,13 +56,38 @@ const DonateHero = () => {
           </div>
 
           <div className="donate-form-col">
-            {/* AM ȘTERS enable-auto-scroll COMPLET DE AICI! */}
+            
+            {/* 1. VARIANTA DESKTOP: Widget Încorporat (se ascunde pe mobil) */}
             <div 
-              className="donate-form-container"
+              className="donate-widget-desktop"
               dangerouslySetInnerHTML={{
                 __html: `<dbox-widget campaign="spectacol-caritabil-de-craciun-2026" type="donation_form"></dbox-widget>`
               }}
             />
+
+            {/* 2. VARIANTA MOBIL: Card cu Buton (se ascunde pe desktop) */}
+            <div className="donate-button-mobile">
+              <h3 className="action-title">Susține Campania</h3>
+              <p className="action-text">
+                Efectuează o donație rapidă și 100% securizată prin platforma oficială Donorbox.
+              </p>
+
+              <a 
+                className="custom-donorbox-btn" 
+                href="https://donorbox.org/spectacol-caritabil-de-craciun-2026?"
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <img 
+                  role="presentation" 
+                  src="https://donorbox.org/images/white_logo.svg" 
+                  alt="Donorbox" 
+                  className="dbox-logo"
+                />
+                Donează Acum
+              </a>
+            </div>
+
           </div>
           
         </div>

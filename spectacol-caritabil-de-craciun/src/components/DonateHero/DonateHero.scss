@@ -174,7 +174,7 @@
   }
 }
 
-/* --- Coloana Dreaptă (Formularul) --- */
+/* --- Coloana Dreaptă (Containerul General) --- */
 .donate-form-col {
   width: 100%;
   max-width: 420px; 
@@ -187,12 +187,16 @@
   @media (max-width: 1200px) {
     transform: none;
     width: 100%; 
+    max-width: 100%;
     margin: 0 auto; 
     height: auto; 
   }
 }
 
-.donate-form-container {
+/* ====================================================
+   1. VARIANTA DESKTOP (WIDGET ÎNCORPORAT)
+   ==================================================== */
+.donate-widget-desktop {
   width: 100%;
   height: 100%; 
   max-height: 530px; 
@@ -202,7 +206,6 @@
   background-color: #ffffff; 
   box-sizing: border-box;
   
-  /* Păstrăm scroll-ul pentru a putea naviga în interior */
   overflow-y: auto; 
   overflow-x: hidden;
   
@@ -212,38 +215,101 @@
   
   -webkit-overflow-scrolling: touch;
 
-  @media (max-width: 1200px) {
-    /* BLOCAJ LĂȚIME: Exact 375px oricât de mic ar fi ecranul */
-    width: 375px !important;
-    min-width: 375px !important;
-    max-width: 375px !important;
-
-    /* BLOCAJ ÎNĂLȚIME: Exact 430px */
-    height: 430px !important;
-    min-height: 430px !important;
-    max-height: 430px !important;
-    
-    /* Asigură-te că și containerul propriu-zis este centrat */
-    margin: 0 auto;
-  }
-
   dbox-widget {
     width: 100%;
     min-height: 650px; 
     display: block; 
   }
   
-  /* --- STILIZARE BARA DE SCROLL ELEGANTĂ --- */
-  &::-webkit-scrollbar {
-    width: 6px; 
+  &::-webkit-scrollbar { width: 6px; }
+  &::-webkit-scrollbar-track { background: #f1f1f1; }
+  &::-webkit-scrollbar-thumb { background: #1a3327; border-radius: 8px; }
+
+  /* ASCUNDEM WIDGET-UL PE MOBIL (sub 1200px) */
+  @media (max-width: 1200px) {
+    display: none !important;
   }
+}
+
+/* ====================================================
+   2. VARIANTA MOBIL (CARD CU BUTON)
+   ==================================================== */
+.donate-button-mobile {
+  /* ASCUNS DIN START (PE DESKTOP) */
+  display: none; 
   
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+  width: 100%;
+  background-color: #ffffff;
+  border: 4px solid #1a3327; 
+  border-radius: 16px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  
+  /* LĂSĂM SĂ APARĂ DOAR PE MOBIL */
+  @media (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    
+    width: 85%; /* Se încadrează perfect pe mijloc pe telefon */
+    padding: 30px 20px;
+    margin: 0 auto; /* Baza pentru mobil */
   }
-  
-  &::-webkit-scrollbar-thumb {
-    background: #1a3327; 
-    border-radius: 8px;
+
+  /* Pentru telefoane mai mari (ex: 425px) - coboară cu 30px */
+  @media (max-width: 480px) and (min-width: 391px) {
+    margin-top: 75px; 
+  }
+
+  /* Pentru telefoane mici (390px în jos) - rămâne lipit (0px) exact cum ai cerut */
+  @media (max-width: 390px) {
+    margin-top: 0; 
+  }
+}
+
+.action-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(24px, 3vw, 28px);
+  color: #751a1a;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.action-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #33473c;
+  line-height: 1.5;
+  margin: 0 0 10px 0;
+}
+
+/* Butonul tău Donorbox, asortat elegant */
+.custom-donorbox-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #1a3327; 
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 18px;
+  padding: 14px 32px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+
+  .dbox-logo {
+    height: 20px;
+  }
+
+  &:hover {
+    background-color: #751a1a; 
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(117, 26, 26, 0.2);
   }
 }

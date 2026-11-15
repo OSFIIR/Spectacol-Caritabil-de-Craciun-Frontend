@@ -186,11 +186,7 @@
 
   @media (max-width: 1200px) {
     transform: none;
-    
-    /* Păstrăm lățimea de 100% dar ne asigurăm că flexbox-ul 
-       îl ține perfect centrat pe orizontală */
     width: 100%; 
-    max-width: 100%; 
     margin: 0 auto; 
     height: auto; 
   }
@@ -217,7 +213,12 @@
   -webkit-overflow-scrolling: touch;
 
   @media (max-width: 1200px) {
-    /* MOBIL: Puțin mai scurt ca să nu iasă jos (430px în loc de 450px sau 530px) */
+    /* BLOCAJ LĂȚIME: Exact 375px oricât de mic ar fi ecranul */
+    width: 375px !important;
+    min-width: 375px !important;
+    max-width: 375px !important;
+
+    /* BLOCAJ ÎNĂLȚIME: Exact 430px */
     height: 430px !important;
     min-height: 430px !important;
     max-height: 430px !important;

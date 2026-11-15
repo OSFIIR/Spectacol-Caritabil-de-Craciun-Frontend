@@ -56,16 +56,11 @@ const DonateHero = () => {
           </div>
 
           <div className="donate-form-col">
-            {/* 
-                Folosim dangerouslySetInnerHTML pentru a fenta React-ul.
-                Acest lucru previne "crash-ul" (eroarea roșie pe care ai avut-o), 
-                permite butoanelor Stripe/Link să funcționeze corect 
-                și păstrează enable-auto-scroll="false" ca să nu sară pagina! 
-            */}
+            {/* AM ȘTERS enable-auto-scroll COMPLET DE AICI! */}
             <div 
               className="donate-form-container"
               dangerouslySetInnerHTML={{
-                __html: `<dbox-widget campaign="spectacol-caritabil-de-craciun-2026" type="donation_form" enable-auto-scroll="false"></dbox-widget>`
+                __html: `<dbox-widget campaign="spectacol-caritabil-de-craciun-2026" type="donation_form"></dbox-widget>`
               }}
             />
           </div>

@@ -1,0 +1,110 @@
+/* --- Secțiunea Principală --- */
+.thankyou-section {
+  width: 100%;
+  position: relative;
+  background-color: #751a1a;
+  color: #e6d7bd;
+  
+  /* AM MĂRIT PADDING-UL: De la 100px la 160px sus și jos pentru o înălțime mult mai mare */
+  padding: 160px 80px; 
+  box-sizing: border-box;
+  
+  z-index: 10;
+  overflow: visible !important;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  @media (max-width: 968px) {
+    padding: 100px 20px;
+  }
+}
+
+/* --- Containerul cu Text --- */
+.thankyou-content {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.thankyou-tag {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 13px;
+  line-height: 150%;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.thankyou-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(40px, 6vw, 76px);
+  line-height: 1.12;
+  text-transform: uppercase;
+  margin: 0;
+  color: #e6d7bd;
+}
+
+.thankyou-subtitle {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: clamp(20px, 3vw, 30px);
+  line-height: 1.12;
+  margin: 0;
+  font-weight: normal;
+}
+
+.thankyou-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.55;
+  margin: 10px 0 0 0;
+  opacity: 0.95;
+  max-width: 750px;
+}
+
+.thankyou-note {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 13px;
+  line-height: 150%;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+/* --- Stikerele Decorative --- */
+.thankyou-sticker {
+  position: absolute;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(2px 4px 5px rgba(0, 0, 0, 0.4));
+  z-index: 100 !important;
+  pointer-events: none;
+
+  /* Stickerul din STÂNGA */
+  &.sticker-left {
+    width: 280px;
+    top: 50%; /* Centrat perfect vertical pe noua înălțime */
+    left: 7%;
+    transform: translateY(-50%);
+  }
+
+  /* Stickerul din DREAPTA JOS */
+  &.sticker-right {
+    width: 160px;
+    bottom: -8%; /* Iese în continuare frumos peste secțiunea următoare */
+    right: 15%;
+    top: auto;
+    transform: none;
+  }
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}

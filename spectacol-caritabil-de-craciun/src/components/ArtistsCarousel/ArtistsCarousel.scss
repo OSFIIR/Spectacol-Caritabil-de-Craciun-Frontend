@@ -1,0 +1,301 @@
+/* --- Secțiunea Principală --- */
+.artists-carousel-section {
+  width: 100%;
+  background-color: #e6d7bd;
+  padding: 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  @media (max-width: 1200px) {
+    padding: 60px 20px;
+  }
+}
+
+/* --- Header Carusel --- */
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 60px;
+  border-bottom: 2px solid rgba(155, 53, 52, 0.1);
+  padding-bottom: 20px;
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+}
+
+.header-left, .header-center, .header-right { flex: 1; display: flex; }
+.header-left { justify-content: flex-start; @media (max-width: 968px) { justify-content: center; } }
+.header-center { justify-content: center; }
+.header-right { 
+  justify-content: flex-end; 
+  align-items: center; 
+  gap: 30px; 
+  @media (max-width: 968px) { justify-content: center; } 
+}
+
+.carousel-subtitle {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(24px, 3vw, 32px);
+  color: #9b3534;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 6px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.carousel-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  color: #751a1a;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 6px;
+  margin: 0;
+}
+
+.carousel-counter {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 16px;
+  color: #751a1a;
+  letter-spacing: 1px;
+}
+
+/* Ascundem săgețile pe mobil */
+.carousel-controls {
+  display: flex;
+  gap: 16px;
+
+  @media (max-width: 968px) {
+    display: none;
+  }
+}
+
+.control-btn {
+  background: transparent;
+  border: none;
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 24px;
+  color: #751a1a;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  padding: 0;
+
+  &:hover {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+/* =========================================
+   CONTAINERELE CARUSELULUI (Slide / Centrare)
+   ========================================= */
+.carousel-track {
+  display: flex;
+  width: 100%;
+  
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Scroll fluid pe iOS */
+  
+  scrollbar-width: none; 
+  &::-webkit-scrollbar { display: none; }
+}
+
+/* O singură "pagină" care ține artiștii */
+.carousel-page {
+  min-width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 31px;
+  scroll-snap-align: start;
+
+  /* Pentru a activa slide-ul pe mobil, NU le mai punem în coloană.
+     Le lăsăm pe orizontală, reducând doar gap-ul, permițând utilizatorului 
+     să dea swipe stânga-dreapta */
+  @media (max-width: 1200px) {
+    /* Modificat: Le lăsăm flex-direction: row și ajustăm gap-ul */
+    justify-content: flex-start; /* Aliniere la stânga pentru a lăsa spațiu de scroll */
+    padding: 0 10px; /* Padding de siguranță la margini */
+    gap: 20px;
+  }
+}
+
+/* =========================================
+   CARDUL ARTISTULUI 
+   ========================================= */
+.artist-card {
+  width: 406px;
+  height: 605.6px;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+  
+  border-radius: 20px; 
+  overflow: hidden; 
+  scroll-snap-align: center; /* Centrare la swipe pe mobil */
+}
+
+.artist-card:hover {
+  transform: translateY(-10px); 
+}
+
+.artist-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; 
+  display: block;
+}
+
+/* --- OVERLAY-UL PENTRU DESCRIERE --- */
+.artist-overlay {
+  position: absolute;
+  
+  top: 80px; 
+  left: 48px;
+  right: 48px;
+  bottom: 206px; 
+  
+  width: auto;
+  height: auto;
+  border-radius: 24px; 
+  
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  padding: 12px; 
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.artist-card:hover .artist-overlay {
+  opacity: 1;
+}
+
+.artist-description {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #e6d7bd;
+  text-align: center;
+  margin: 0;
+  
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+
+.artist-card:hover .artist-description {
+  transform: translateY(0);
+}
+
+/* --- NUMELE ARTISTULUI --- */
+.artist-name-box {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto !important;
+  
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: 24px;
+  color: #e6d7bd; 
+  letter-spacing: 1px;
+  
+  z-index: 3; 
+  pointer-events: none; 
+  
+  /* Pentru Desktop */
+  bottom: 122px; 
+}
+
+/* ----------------------------------------------------
+   RANGE 1: Telefoane mai mari (între 391px și 480px)
+   Exemplu: 425px lățime (ca în prima imagine)
+   ---------------------------------------------------- */
+@media (max-width: 480px) and (min-width: 391px) {
+  .artist-card {
+    width: 85vw;
+    height: auto;
+    aspect-ratio: 406 / 605.6; 
+  }
+  
+  .artist-name-box {
+    font-size: clamp(16px, 4vw, 20px); 
+    
+    /* Aici pui valoarea care arată bine pentru ecranul de 425px */
+    bottom: 17%; 
+    
+    transform: translateX(-50%); 
+    top: auto;
+  }
+}
+
+/* ----------------------------------------------------
+   RANGE 2: Telefoane standard și mici (sub 390px)
+   Exemplu: 375px lățime (ca în a doua imagine)
+   ---------------------------------------------------- */
+@media (max-width: 390px) {
+  .artist-card {
+    width: 85vw;
+    height: auto;
+    aspect-ratio: 406 / 605.6; 
+  }
+  
+  .artist-name-box {
+    font-size: clamp(14px, 4.5vw, 18px); 
+    
+    /* Aici pui o valoare diferită, mai ridicată, 
+       pentru a compensa coborârea textului pe ecranele mici */
+    bottom: 13.5%; 
+    
+    transform: translateX(-50%); 
+    top: auto;
+  }
+}
+
+/* Reguli generale pentru overlay (valabile pentru ambele range-uri pe mobil) */
+@media (max-width: 480px) {
+  .artist-overlay {
+    /* Folosim procente mult mai stricte pentru a prinde EXACT pătratul verde */
+    top: 12%;      /* Lasă spațiu de sus, până la dunga roșie */
+    left: 12%;       /* Marginea verde din stânga */
+    right: 12%;      /* Marginea verde din dreapta */
+    bottom: 36%;     /* Aici e cheia: ridicăm puternic partea de jos ca să nu mai curgă pe bej */
+    
+    /* Ne asigurăm că textul din interior se centrează frumos pe acest spațiu redus */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px; 
+    border-radius: 16px; /* Rotunjire un pic mai mică pe mobil ca să arate proporțional */
+  }
+
+  .artist-description {
+    /* Micșorăm un pic fontul descrierii pe mobil ca să încapă în spațiul nou, mai scurt */
+    font-size: clamp(12px, 3.5vw, 15px);
+    line-height: 1.4;
+  }
+}

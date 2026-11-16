@@ -1,0 +1,15 @@
+# Ubuntu host Apache. Reuse the existing Listen 80; do not change other sites.
+<VirtualHost *:80>
+    ServerName spectacol2026.osfiir.ro
+    ProxyRequests Off
+    ProxyPreserveHost On
+    ProxyTimeout 30
+    RequestHeader unset Forwarded
+    RequestHeader unset X-Forwarded-For
+    RequestHeader unset X-Forwarded-Host
+    RequestHeader set X-Forwarded-Proto "expr=%{REQUEST_SCHEME}"
+    ProxyPass        / http://127.0.0.1:18083/
+    ProxyPassReverse / http://127.0.0.1:18083/
+    ErrorLog ${APACHE_LOG_DIR}/spectacol-error.log
+    CustomLog ${APACHE_LOG_DIR}/spectacol-access.log combined
+</VirtualHost>

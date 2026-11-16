@@ -1,0 +1,132 @@
+/* --- Secțiunea Principală --- */
+.about-show {
+  width: 100%;
+  min-height: 597px;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  padding: 100px 80px;
+  box-sizing: border-box;
+  gap: 40px; 
+  position: relative;
+  overflow: hidden;
+  
+  /* Ajustează unde se oprește scroll-ul ca să nu fie tăiat sus de meniu */
+  scroll-margin-top: 100px; 
+
+  /* Adaptare pentru tablete și telefoane */
+  @media (max-width: 968px) {
+    flex-direction: column;
+    padding: 60px 20px;
+    gap: 40px;
+    text-align: center;
+    scroll-margin-top: 100px;
+  }
+}
+
+/* --- Secțiunea de Text --- */
+.about-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 560px;
+
+  @media (max-width: 968px) {
+    align-items: center;
+    max-width: 100%;
+  }
+}
+
+.about-subtitle {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 12px;
+  color: #751a1a;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+.about-title {
+  font-family: 'FTY SKORZHEN NCV', serif;
+  font-size: clamp(32px, 4vw, 49px);
+  line-height: 1.12;
+  text-transform: uppercase;
+  color: #33473c;
+  margin: 0;
+}
+
+.about-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(15px, 2vw, 17px);
+  line-height: 1.55;
+  color: #33473c;
+  margin: 0;
+  max-width: 530px;
+}
+
+/* Butonul cu contur */
+.btn-outline {
+  border-radius: 4px;
+  border: 1px solid #751a1a;
+  color: #751a1a;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-family: 'Cal Sans', sans-serif;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  white-space: pre-wrap;
+  transition: all 0.3s ease;
+  background-color: transparent;
+
+  &:hover {
+    background-color: #751a1a;
+    color: #E6D7BD;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(117, 26, 26, 0.15);
+  }
+  
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* --- Secțiunea Vizuală --- */
+.about-visuals {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 680px;
+
+  @media (max-width: 968px) {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.about-image {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 100px 4px 4px 4px; 
+}
+
+.about-sticker {
+  position: absolute;
+  width: 35%; 
+  max-width: 250px;
+  bottom: -15%;
+  right: -5%;
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.4));
+  object-fit: contain;
+
+  @media (max-width: 968px) {
+    width: 30%;
+    bottom: -10%;
+    right: 0;
+  }
+}

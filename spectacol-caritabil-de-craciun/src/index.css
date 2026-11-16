@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans:ital,wght@0,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500&display=swap');
+
+:root {
+  --font-title: 'FTY SKORZHEN NCV', sans-serif;
+  --font-paragraph: 'Montserrat', sans-serif;
+  --font-cta: 'DM Sans', sans-serif;
+
+  --primary-color: #E6D7BD;
+  --secondary-color-first: #33473C;
+  --secondary-color-second: #751A1A;
+  --primary-accents: #9B3534; 
+}
+
+@font-face {
+  font-family: 'FTY SKORZHEN NCV';
+  src: url('./assets/fonts/fty-skorzhen.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+html, body, *, 
+*::before, *::after, 
+*:hover, *:active, *:focus, 
+*:focus-within, *:focus-visible, 
+input, button, a, textarea, select {
+  cursor: none !important;
+}
+
+/* Previne evidențierea textului accidentală la dublu click rapid care uneori declanșează cursorul de text */
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+

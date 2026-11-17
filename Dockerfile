@@ -3,6 +3,14 @@ WORKDIR /app
 COPY spectacol-caritabil-de-craciun/package.json spectacol-caritabil-de-craciun/package-lock.json ./
 RUN npm ci --no-audit --no-fund
 COPY spectacol-caritabil-de-craciun/ ./
+# Public frontend configuration, embedded in the compiled JavaScript.
+ARG REACT_APP_EMAILJS_SERVICE_ID
+ARG REACT_APP_EMAILJS_TEMPLATE_ID
+ARG REACT_APP_EMAILJS_PUBLIC_KEY
+RUN test -n "$REACT_APP_EMAILJS_SERVICE_ID" \
+    && test -n "$REACT_APP_EMAILJS_TEMPLATE_ID" \
+    && test -n "$REACT_APP_EMAILJS_PUBLIC_KEY" \
+    || { echo 'Missing required EmailJS build configuration'; exit 1; }
 # Keep existing source warnings visible without failing the build (approved).
 RUN CI=false npm run build
 

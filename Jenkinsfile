@@ -35,13 +35,18 @@ pipeline {
                     }
                 }
                 stage('Validate and build') {
+                    environment {
+                        REACT_APP_EMAILJS_SERVICE_ID = credentials('spectacol-emailjs-service-id')
+                        REACT_APP_EMAILJS_TEMPLATE_ID = credentials('spectacol-emailjs-template-id')
+                        REACT_APP_EMAILJS_PUBLIC_KEY = credentials('spectacol-emailjs-public-key')
+                    }
                     steps {
                         sh '''
                             docker compose config --quiet
                             docker compose build --pull
                             printf 'APP_VERSION=%s\\n' "$APP_VERSION" > reports/release.txt
                             docker image inspect "spectacol-craciun:$APP_VERSION" --format '{{.Id}}' > reports/image-id.txt
-                            docker compose config > reports/compose-release.yaml
+                            docker compose config --no-interpolate > reports/compose-release.yaml
                         '''
                     }
                 }
@@ -58,7 +63,7 @@ pipeline {
                                 sleep 2
                             done
                             [ "$ready" = 1 ]
-                            for route in / /artists /sponsors /team /donate /manifest.json; do
+                            for route in / /artists /sponsors /team /donate /contact /manifest.json; do
                                 docker exec "spectacol-check-$APP_VERSION" wget -q -O /dev/null "http://127.0.0.1$route"
                             done
                             docker exec "spectacol-check-$APP_VERSION" wget -q -O - http://127.0.0.1/ > reports/index.html

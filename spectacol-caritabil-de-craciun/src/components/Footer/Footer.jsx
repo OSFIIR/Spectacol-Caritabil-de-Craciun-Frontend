@@ -48,6 +48,7 @@ const Footer = () => {
             <Link to="/artists">Artiști</Link>
             <Link to="/sponsors">Sponsori</Link>
             <Link to="/team">Echipa</Link>
+            <Link to="/contact">Contact</Link>
           </nav>
 
           {/* Iconițele de Social Media / Website poziționate DEDESUBTUL meniului */}

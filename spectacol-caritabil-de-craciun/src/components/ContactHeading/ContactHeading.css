@@ -66,4 +66,8 @@
   #ilex-second {
       display:none;
   }
+
+  .contact-heading-title {
+    line-height: 4rem;
+  }
 }

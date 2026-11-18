@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import bowtie from "../../assets/svg/bow-sticker.svg";
 import emailjs from "@emailjs/browser";
 import "./ContactForm.css";
@@ -8,10 +8,12 @@ const TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
 function ContactForm() {
+  const [isSending, setIsSending] = useState(false);
   const formRef = useRef(null);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    setIsSending(true);
 
     const send = () =>
       emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
@@ -26,6 +28,9 @@ function ContactForm() {
       .catch((error) => {
         console.log(error.text);
         alert("Trimitere esuata");
+      })
+      .finally(() => {
+        setIsSending(false);
       });
   };
 
@@ -60,8 +65,8 @@ function ContactForm() {
             </div>
           </div>
 
-          <button type="submit" className="send-btn">
-            Trimite
+          <button type="submit" className="send-btn" disabled={isSending}>
+            {isSending ? "Se trimite..." : "Trimite"}
           </button>
         </form>
       </section>

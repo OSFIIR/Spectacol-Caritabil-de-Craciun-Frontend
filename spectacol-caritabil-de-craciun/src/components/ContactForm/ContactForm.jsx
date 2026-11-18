@@ -13,19 +13,20 @@ function ContactForm() {
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
-      .then(
-        (result) => {
-          console.log(result.text);
-          alert("Mesaj trimis cu succes");
-          formRef.current.reset();
-        },
-        (error) => {
-          console.log(error.text);
-          alert("Trimitere esuata");
-        }
-      );
+    const send = () =>
+      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
+
+    send()
+      .catch(() => send())
+      .then((result) => {
+        console.log(result.text);
+        alert("Mesaj trimis cu succes");
+        formRef.current.reset();
+      })
+      .catch((error) => {
+        console.log(error.text);
+        alert("Trimitere esuata");
+      });
   };
 
   return (

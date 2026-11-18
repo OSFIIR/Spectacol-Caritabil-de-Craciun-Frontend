@@ -1,3 +1,4 @@
+import { FiArrowUpRight } from 'react-icons/fi';
 import './Partners.scss';
 
 const Partners = () => {
@@ -39,7 +40,7 @@ const Partners = () => {
 
           {/* Butonul de acțiune */}
           <a href="/contact" className="partners-btn">
-            Vreau să devin partener &nbsp; ↗
+            Vreau să devin partener <FiArrowUpRight />
           </a>
         </div>
 

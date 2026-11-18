@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import atmosferaImg from '../../assets/photos/poza1.JPG'; // Asigură-te că ai poza salvată aici
-import ilexSticker from '../../assets/svg/sticker-ilex.svg'; // Sticker-ul cu frunzele de ilex
+import { FiArrowUpRight } from 'react-icons/fi';
+import atmosferaImg from '../../assets/photos/poza1.JPG';
+import ilexSticker from '../../assets/svg/sticker-ilex.svg';
 import './AboutShow.scss';
 
 const AboutShow = () => {
@@ -23,7 +24,7 @@ const AboutShow = () => {
         </p>
         
         <Link to="/artists" className="btn-outline">
-          Cunoaște artiștii ↗
+          Cunoaște artiștii <FiArrowUpRight />
         </Link>
       </div>
 

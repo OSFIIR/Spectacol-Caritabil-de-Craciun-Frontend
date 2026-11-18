@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import imagineArtist from '../../assets/svg/card-artist-gol.svg'; 
 import './ArtistsCarousel.scss';
 
@@ -86,8 +87,12 @@ const ArtistsCarousel = () => {
           </span>
 
           <div className="carousel-controls">
-            <button onClick={scrollLeft} className="control-btn" aria-label="Înapoi">←</button>
-            <button onClick={scrollRight} className="control-btn" aria-label="Înainte">→</button>
+            <button onClick={scrollLeft} className="control-btn" aria-label="Înapoi">
+              <FiArrowLeft />
+            </button>
+            <button onClick={scrollRight} className="control-btn" aria-label="Înainte">
+              <FiArrowRight />
+            </button>
           </div>
         </div>
       </div>

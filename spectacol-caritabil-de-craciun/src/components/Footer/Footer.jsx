@@ -28,11 +28,11 @@ const Footer = () => {
           </div>
           <div className="contact-item">
             <img src={iconPhone} alt="Telefon" className="contact-icon" />
-            <span>+40 731 080 207</span>
+            <a href="tel:=40731080207">+40 731 080 207</a>
           </div>
           <div className="contact-item">
             <img src={iconEmail} alt="Email" className="contact-icon" />
-            <span>office@osfiir.ro</span>
+            <a href="mailto:office@osfiir.ro">office@osfiir.ro</a>
           </div>
         </div>
 
@@ -74,7 +74,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="footer-separator" />
         <div className="footer-legal">
-          <p>OSFIIR © 2026</p>
+          <p>© OSFIIR 2026. Toate drepturile rezervate.</p>
           <div className="legal-links">
             <Link to="/privacy">Confidențialitate</Link>
             <span className="dot">·</span>

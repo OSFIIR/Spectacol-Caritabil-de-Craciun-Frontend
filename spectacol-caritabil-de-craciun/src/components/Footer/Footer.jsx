@@ -24,15 +24,15 @@ const Footer = () => {
         <div className="footer-col contact-col">
           <div className="contact-item">
             <img src={iconLocation} alt="Locație" className="contact-icon" />
-            <span>Politehnica Corp E, București</span>
+            <span>Splaiul Independenţei, nr. 313, Corp CB Politehnica, București</span>
           </div>
           <div className="contact-item">
             <img src={iconPhone} alt="Telefon" className="contact-icon" />
-            <span>+40 731 080 207</span>
+            <a href="tel:=40731080207">+40 731 080 207</a>
           </div>
           <div className="contact-item">
             <img src={iconEmail} alt="Email" className="contact-icon" />
-            <span>office@osfiir.ro</span>
+            <a href="mailto:office@osfiir.ro">office@osfiir.ro</a>
           </div>
         </div>
 
@@ -48,6 +48,7 @@ const Footer = () => {
             <Link to="/artists">Artiști</Link>
             <Link to="/sponsors">Sponsori</Link>
             <Link to="/team">Echipa</Link>
+            <Link to="/contact">Contact</Link>
           </nav>
 
           {/* Iconițele de Social Media / Website poziționate DEDESUBTUL meniului */}
@@ -73,7 +74,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="footer-separator" />
         <div className="footer-legal">
-          <p>© Spectacolul Caritabil. Toate drepturile rezervate.</p>
+          <p>© OSFIIR 2026. Toate drepturile rezervate.</p>
           <div className="legal-links">
             <Link to="/privacy">Confidențialitate</Link>
             <span className="dot">·</span>

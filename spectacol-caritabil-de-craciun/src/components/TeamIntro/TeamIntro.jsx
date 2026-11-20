@@ -1,6 +1,6 @@
 import stickerFund from '../../assets/svg/bow-sticker.svg'; // Înlocuiește cu căile corecte spre stickerele tale
 import stickerIlex from '../../assets/svg/sticker-ilex.svg';
-import echipaFoto from '../../assets/photos/echipa-voluntari.png'; // Înlocuiește cu calea spre poza echipei
+import echipaFoto from '../../assets/photos/poza1.JPG'; // Înlocuiește cu calea spre poza echipei
 import './TeamIntro.scss';
 
 const TeamIntro = () => {
@@ -33,7 +33,7 @@ const TeamIntro = () => {
 
       {/* Partea de Jos: Fotografia Echipei */}
       <div className="team-photo-container">
-        <img src={echipaFoto} alt="Echipa de voluntari" className="team-photo" />
+        {/* <img src={echipaFoto} alt="Echipa de voluntari" className="team-photo" /> */}
       </div>
 
     </section>

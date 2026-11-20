@@ -8,15 +8,14 @@ import Donate from './pages/Donate/Donate.jsx';
 import Home from './pages/Home/Home.jsx';
 import Sponsors from './pages/Sponsors/Sponsors.jsx';
 import Team from './pages/Team/Team.jsx';
+import Contact from './pages/Contact/Contact.jsx';
 
-export {Artists, Donate, Home, Sponsors, Team};
+export {Artists, Donate, Home, Sponsors, Team, Contact};
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );

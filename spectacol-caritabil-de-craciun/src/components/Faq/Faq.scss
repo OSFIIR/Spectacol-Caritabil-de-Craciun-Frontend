@@ -2,11 +2,11 @@
   width: 100%;
   min-height: 860px;
   background-color: #e6d7bd;
-  padding: 129px 20px 51px 20px; 
+  padding: 129px 20px 80px 20px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 .faq-container {
@@ -14,7 +14,7 @@
   max-width: 1400px;
   position: relative;
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
 }
 
@@ -22,21 +22,12 @@
 .faq-intro {
   position: absolute;
   top: 0;
-  left: 20px; 
+  left: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   z-index: 5;
-  width: 300px; 
-
-  @media (max-width: 1200px) {
-    position: relative;
-    left: auto;
-    text-align: center;
-    margin-bottom: 60px;
-    align-items: center;
-    width: 100%;
-  }
+  width: 300px;
 }
 
 .faq-subtitle {
@@ -48,40 +39,44 @@
 
 .faq-title {
   font-family: 'FTY SKORZHEN NCV', serif;
-  font-size: clamp(36px, 5vw, 50px);
+  font-size: clamp(32px, 5vw, 50px);
   line-height: 1.12;
   text-transform: uppercase;
   color: #33473c;
   margin: 0;
 }
 
-/* --- Bradul --- */
 .faq-tree-wrapper {
   position: relative;
   width: 100%;
-  max-width: 500px; 
+  max-width: 500px;
   display: flex;
   justify-content: center;
-  padding-top: 40px; 
+  padding-top: 40px;
 }
 
 .faq-tree-main {
   width: 100%;
   height: auto;
   z-index: 3;
+  pointer-events: none;
 }
 
-/* --- Containerul Părinte --- */
+.faq-cards-layer {
+  position: static;
+}
+
 .faq-item {
   position: absolute;
   z-index: 4;
+
+  &:hover,
+  &.is-open,
+  &:focus-within {
+    z-index: 100;
+  }
 }
 
-.faq-item:hover {
-  z-index: 100;
-}
-
-/* --- Sârmele SVG ancorate corect --- */
 .faq-wire {
   position: absolute;
   width: 80px;
@@ -91,48 +86,48 @@
   z-index: 1;
 }
 
-/* Pentru cardurile din stânga, sârma stă lipită de marginea lor din DREAPTA (spre brad) */
 .faq-item.left .faq-wire {
-  right: -60px; 
+  right: -60px;
 }
 
-/* Pentru cardurile din dreapta, sârma stă lipită de marginea lor din STÂNGA (spre brad) */
 .faq-item.right .faq-wire {
   left: -60px;
 }
 
-/* --- Cardul propriu-zis --- */
 .faq-card {
   position: relative;
   z-index: 2;
-  width: max-content; 
+  width: max-content;
   background-color: #e6d7bd;
   border: 1px solid #9b3534;
   border-radius: 4px;
   box-shadow: 0px 4px 10px rgba(51, 71, 60, 0.12);
   cursor: pointer;
-  
   display: flex;
-  /* Eliminat transform: translateY. Acum doar umbra se schimbă */
-  transition: box-shadow 0.4s ease; 
+  transition: box-shadow 0.35s ease;
+  outline: none;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px #751a1a, 0px 8px 20px rgba(51, 71, 60, 0.25);
+  }
 }
 
-/* La HOVER: Doar adăugăm umbră, NU mai sare în sus! */
-.faq-item:hover .faq-card {
+.faq-item:hover .faq-card,
+.faq-item.is-open .faq-card {
   box-shadow: 0px 8px 20px rgba(51, 71, 60, 0.3);
 }
 
 .faq-item.left .faq-card {
-  flex-direction: row-reverse; 
-}
-.faq-item.right .faq-card {
-  flex-direction: row; 
+  flex-direction: row-reverse;
 }
 
-/* --- Partea 1: Întrebarea --- */
+.faq-item.right .faq-card {
+  flex-direction: row;
+}
+
 .faq-card-header {
   width: 250px;
-  flex-shrink: 0; 
+  flex-shrink: 0;
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -140,14 +135,34 @@
   justify-content: center;
 }
 
-.faq-item.left .faq-card-header { padding: 16px 28px 16px 20px; }
-.faq-item.right .faq-card-header { padding: 16px 20px 16px 28px; }
+.faq-item.left .faq-card-header {
+  padding: 16px 28px 16px 20px;
+}
+
+.faq-item.right .faq-card-header {
+  padding: 16px 20px 16px 28px;
+}
+
+.faq-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
 
 .faq-card-num {
   font-family: 'FTY SKORZHEN NCV', serif;
   font-size: 16px;
   color: #9b3534;
-  margin-bottom: 8px;
+}
+
+.faq-card-toggle {
+  display: none;
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  color: #9b3534;
+  font-weight: bold;
 }
 
 .faq-card-q {
@@ -159,45 +174,49 @@
   font-weight: bold;
 }
 
-/* --- Partea 2: Răspunsul --- */
 .faq-card-answer {
   width: 0;
-  overflow: hidden; 
+  overflow: hidden;
   transition: width 0.4s ease;
   display: flex;
   align-items: center;
   background-color: #e6d7bd;
 }
 
-.faq-item:hover .faq-card-answer {
-  width: 250px; 
+.faq-card-answer-inner {
+  width: 250px;
+  flex-shrink: 0;
 }
 
-.faq-item.left:hover .faq-card-answer {
+.faq-item:hover .faq-card-answer,
+.faq-item.is-open .faq-card-answer {
+  width: 250px;
+}
+
+.faq-item.left:hover .faq-card-answer,
+.faq-item.left.is-open .faq-card-answer {
   border-right: 1px dashed rgba(155, 53, 52, 0.3);
 }
-.faq-item.right:hover .faq-card-answer {
+
+.faq-item.right:hover .faq-card-answer,
+.faq-item.right.is-open .faq-card-answer {
   border-left: 1px dashed rgba(155, 53, 52, 0.3);
 }
 
 .faq-card-answer p {
-  width: 250px; 
+  width: 100%;
   box-sizing: border-box;
   margin: 0;
   padding: 16px 20px;
   font-family: 'Cal Sans', sans-serif;
   font-size: 14px;
-  line-height: 1.4;
-  color: #33473c; 
-  flex-shrink: 0;
+  line-height: 1.45;
+  color: #33473c;
 }
 
-/* =========================================
-   Detalii de asamblare (Gaura) 
-   ========================================= */
 .faq-card-hole {
   position: absolute;
-  top: 18px; 
+  top: 18px;
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -205,8 +224,9 @@
   z-index: 10;
 }
 
-.faq-item.left .faq-card-hole { right: 12px; }
-.faq-item.right .faq-card-hole { left: 12px; }
+.faq-item.left .faq-card-hole {
+  right: 12px;
+}
 
 .faq-item.right .faq-card-num {
   position: relative;
@@ -214,45 +234,150 @@
   left: 0;
 }
 
-/* =========================================
-   Adaptare pentru Mobil / Tablete 
-   ========================================= */
+@media (max-width: 1540px) and (min-width: 1201px) {
+  .faq-intro {
+    width: 240px;
+  }
+
+  .faq-tree-wrapper {
+    max-width: 400px;
+    margin-top: 30px;
+  }
+
+  .faq-card-header,
+  .faq-card-answer-inner {
+    width: 205px;
+  }
+
+  .faq-item:hover .faq-card-answer,
+  .faq-item.is-open .faq-card-answer {
+    width: 205px;
+  }
+
 @media (max-width: 1200px) {
+  .faq-section {
+    min-height: auto;
+    padding: 80px 20px 64px 20px;
+  }
+
+  .faq-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .faq-intro {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 640px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  .faq-tree-wrapper {
+    max-width: 760px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  .faq-tree-main {
+    max-width: 260px;
+    margin-bottom: 32px;
+  }
+
+  .faq-cards-layer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
   .faq-item {
     position: relative;
     top: auto !important;
-    left: auto !important; right: auto !important;
+    left: auto !important;
+    right: auto !important;
     width: 100%;
-    max-width: 350px;
-    margin-bottom: 20px;
+    order: var(--order);
   }
 
-  .faq-wire { display: none; }
+  .faq-wire,
+  .faq-card-hole {
+    display: none;
+  }
 
-  .faq-card { 
-    width: 100% !important; 
+  .faq-card-toggle {
+    display: inline-block;
+  }
+
+  .faq-card {
+    width: 100%;
     flex-direction: column !important;
   }
 
   .faq-card-header {
-    width: 100% !important;
+    width: 100%;
+    padding: 18px 20px !important;
   }
 
   .faq-card-answer {
     width: 100% !important;
-    max-height: 0; 
-    transition: max-height 0.4s ease;
-  }
-
-  .faq-item:hover .faq-card-answer {
-    max-height: 200px;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease;
     border: none !important;
   }
 
-  .faq-card-answer p {
+  .faq-card-answer-inner {
     width: 100%;
-    padding-top: 12px;
+    overflow: hidden;
+  }
+
+  .faq-item:hover .faq-card-answer {
+    grid-template-rows: 0fr;
+  }
+
+  .faq-item.is-open .faq-card-answer {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-card-answer p {
+    padding: 14px 20px 18px 20px;
     border-top: 1px dashed rgba(155, 53, 52, 0.3);
+  }
+}
+
+
+@media (max-width: 680px) {
+  .faq-section {
+    padding: 60px 16px 48px 16px;
+  }
+
+  .faq-tree-main {
+    max-width: 200px;
+    margin-bottom: 24px;
+  }
+
+  .faq-cards-layer {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .faq-card-header {
+    padding: 16px !important;
+  }
+
+  .faq-card-q {
+    font-size: 14px;
+  }
+
+  .faq-card-answer p {
+    font-size: 13.5px;
+    padding: 12px 16px 16px 16px;
   }
 
   .faq-card-hole { display: none; }

@@ -1,4 +1,5 @@
 import { NavLink, Link } from 'react-router-dom';
+import { FiArrowUpRight } from 'react-icons/fi';
 import logo from '../../assets/svg/logo.svg';
 import './Navbar.scss';
 
@@ -34,10 +35,16 @@ const Navbar = () => {
         >
           Echipa
         </NavLink>
+        <NavLink 
+          to="/contact" 
+          className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+        >
+          Contact
+        </NavLink>
       </div>
 
       <Link to="/donate" className="btn-donate">
-        Susține cauza ↗
+        Susține cauza <FiArrowUpRight />
       </Link>
     </nav>
   );

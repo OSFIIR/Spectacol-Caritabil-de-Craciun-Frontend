@@ -49,8 +49,8 @@ const DonateHero = () => {
                 aplauzele în zâmbete!
               </p>
               
-              <a href="#cauza" className="donate-btn">
-                Vezi cauza &nbsp; &darr;
+              <a href="/artists" className="donate-btn">
+                Vezi cauza &nbsp; &#8599;
               </a>
             </div>
           </div>

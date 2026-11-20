@@ -5,6 +5,18 @@ import img3 from '../../assets/photos/poza4.jpg';
 import img4 from '../../assets/photos/poza6.JPG';
 import img5 from '../../assets/photos/poza5.JPG';
 import img6 from '../../assets/photos/poza7.JPG';
+import img7 from '../../assets/photos/poza8.jpg';
+import img8 from '../../assets/photos/poza9.JPG';
+import img9 from '../../assets/photos/poza10.JPG';
+import img10 from '../../assets/photos/poza11.jpg';
+import img11 from '../../assets/photos/poza12.jpg';
+import img12 from '../../assets/photos/poza13.jpg';
+import img13 from '../../assets/photos/poza14.jpg';
+import img14 from '../../assets/photos/poza15.jpg';
+import img15 from '../../assets/photos/poza16.jpg';
+import img16 from '../../assets/photos/poza17.jpg';
+import img17 from '../../assets/photos/poza18.jpg';
+import img18 from '../../assets/photos/poza1.JPG';
 import video1 from '../../assets/videos/video1.mp4';
 import video2 from '../../assets/videos/video2.mp4';
 import video3 from '../../assets/videos/video3.mp4';
@@ -151,7 +163,59 @@ const Gallery = () => {
           </figure>
           <figure className="gallery-item small">
             <img src={img6} alt="Voluntarii noștri" loading="lazy" />
-            <figcaption>Voluntarii noștri</figcaption>
+            <figcaption>În lumina reflectoarelor</figcaption>
+          </figure>
+
+          <figure className="gallery-item large">
+            <img src={img7} alt="Magia scenei" loading="lazy" />
+            <figcaption>Magia scenei</figcaption>
+          </figure>
+          <figure className="gallery-item small">
+            <img src={img8} alt="Bucuria muzicii" loading="lazy" />
+            <figcaption>Bucuria muzicii</figcaption>
+          </figure>
+          <figure className="gallery-item small">
+            <img src={img9} alt="Voluntarii noștri" loading="lazy" />
+            <figcaption>În lumina reflectoarelor</figcaption>
+          </figure>
+
+          <figure className="gallery-item large">
+            <img src={img10} alt="Magia scenei" loading="lazy" />
+            <figcaption>Magia scenei</figcaption>
+          </figure>
+          <figure className="gallery-item small">
+            <img src={img11} alt="Bucuria muzicii" loading="lazy" />
+            <figcaption>Bucuria muzicii</figcaption>
+          </figure>
+          <figure className="gallery-item small">
+            <img src={img12} alt="Voluntarii noștri" loading="lazy" />
+            <figcaption>În lumina reflectoarelor</figcaption>
+          </figure>
+
+          <figure className="gallery-item large">
+            <img src={img15} alt="Magia scenei" loading="lazy" />
+            <figcaption>Magia scenei</figcaption>
+          </figure>
+          <figure className="gallery-item small">
+            <img src={img13} alt="Bucuria muzicii" loading="lazy" />
+            <figcaption>Bucuria muzicii</figcaption>
+          </figure>
+          <figure className="gallery-item small">
+            <img src={img14} alt="Voluntarii noștri" loading="lazy" />
+            <figcaption>În lumina reflectoarelor</figcaption>
+          </figure>
+
+          <figure className="gallery-item large">
+            <img src={img16} alt="Magia scenei" loading="lazy" />
+            <figcaption>Împreună pentru bine</figcaption>
+          </figure>
+          <figure className="gallery-item small">
+            <img src={img17} alt="Bucuria muzicii" loading="lazy" />
+            <figcaption>Bucuria muzicii</figcaption>
+          </figure>
+          <figure className="gallery-item small">
+            <img src={img18} alt="Voluntarii noștri" loading="lazy" />
+            <figcaption>În lumina reflectoarelor</figcaption>
           </figure>
           
           <div className="carousel-spacer"></div>

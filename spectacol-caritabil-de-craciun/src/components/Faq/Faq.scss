@@ -18,6 +18,7 @@
   justify-content: center;
 }
 
+/* --- Textele din stânga --- */
 .faq-intro {
   position: absolute;
   top: 0;
@@ -227,8 +228,10 @@
   right: 12px;
 }
 
-.faq-item.right .faq-card-hole {
-  left: 12px;
+.faq-item.right .faq-card-num {
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
 @media (max-width: 1540px) and (min-width: 1201px) {
@@ -250,7 +253,6 @@
   .faq-item.is-open .faq-card-answer {
     width: 205px;
   }
-}
 
 @media (max-width: 1200px) {
   .faq-section {
@@ -377,4 +379,6 @@
     font-size: 13.5px;
     padding: 12px 16px 16px 16px;
   }
+
+  .faq-card-hole { display: none; }
 }

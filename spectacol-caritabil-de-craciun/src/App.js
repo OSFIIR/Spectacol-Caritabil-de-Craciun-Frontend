@@ -7,7 +7,7 @@ import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import ScrollTop from './hooks/ScrollTop.jsx';
 import { useGlobalSwipe } from './hooks/useGlobalSwipe.jsx';
 
-const ROUTES_ORDER = ['/', '/artists', '/sponsors', '/team'];
+const ROUTES_ORDER = ['/', '/artists', '/sponsors', '/team', '/contact'];
 
 function AppContent() {
   const navigate = useNavigate();
@@ -35,8 +35,8 @@ function AppContent() {
       <Route path="/artists" element={<Artists />} />
       <Route path="/sponsors" element={<Sponsors />} />
       <Route path="/team" element={<Team />} />
-      <Route path="/donate" element={<Donate />} />
       <Route path="/contact" element={<Contact />}/>
+      <Route path="/donate" element={<Donate />} />
     </Routes>
   );
 }

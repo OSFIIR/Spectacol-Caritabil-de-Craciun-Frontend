@@ -8,7 +8,7 @@ import ComingSoon from "../../components/ComingSoon/ComingSoon";
 const Artists = () => {
  return(
   <section className="artists-page">
-    {/*<ArtistIntro />*/}
+    <ArtistIntro />
     {/*<ArtistsCarousel />*/}
     {/*<Schedule />*/}
     <ComingSoon />

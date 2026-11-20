@@ -4,7 +4,7 @@
   min-height: 700px;
   background-color: #33473c;
   color: #e6d7bd;
-  padding: 100px 80px;
+  padding: 120px 80px 100px;
   box-sizing: border-box;
   
   display: flex;
@@ -46,7 +46,7 @@
 
 .artists-title {
   font-family: 'FTY SKORZHEN NCV', serif;
-  font-size: clamp(40px, 6vw, 80px); /* Scalează fin pe ecrane diferite */
+  font-size: clamp(40px, 6vw, 80px);
   line-height: 1.12;
   text-transform: uppercase;
   margin: 0 0 40px 0;
@@ -60,7 +60,6 @@
   opacity: 0.9;
 }
 
-
 /* --- Coloana din Dreapta (Bilețelul) --- */
 .artists-cause {
   flex: 1;
@@ -73,9 +72,13 @@
 .cause-card {
   position: relative;
   width: 100%;
-  max-width: 516px; /* Dimensiunea reală a SVG-ului din Figma */
+  max-width: 516px;
   display: flex;
   justify-content: center;
+
+  @media (min-width: 969px) {
+    margin-top: 20px; /* Oferă spațiu fundiței ca să nu atingă marginea de sus */
+  }
 }
 
 /* Fundalul bilețelului */
@@ -85,10 +88,10 @@
   object-fit: contain;
 }
 
-/* Pioneza iese puțin în afara biletului */
+/* Pioneza / fundița iese puțin în afara biletului */
 .cause-pin {
   position: absolute;
-  top: -50px; /* Ridică pioneza peste marginea de sus */
+  top: -50px;
   left: 50%;
   transform: translateX(-50%);
   width: 24%;
@@ -100,13 +103,20 @@
 /* Textul scris PESTE imaginea SVG a bilețelului */
 .cause-content {
   position: absolute;
-  top: 15%; /* Coborâm sub pioneză */
-  width: 80%; /* Nu lăsăm textul să atingă marginile SVG-ului */
+  top: 15%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   z-index: 1;
+
+  @media (min-width: 969px) {
+    top: 14%;
+    bottom: 10%;
+    width: 78%;
+    justify-content: center; /* Centrează vertical textul în interiorul biletului */
+  }
 }
 
 .cause-title {
@@ -114,11 +124,14 @@
   font-size: clamp(24px, 3vw, 32px);
   color: #9b3534;
   margin: 0 0 20px 0;
-  
-  /* Varianta cu Border (cea mai sigură și curată) */
-  text-decoration: none; 
+  text-decoration: none;
   border-bottom: 2px solid #9b3534;
-  padding-bottom: 4px; /* Controlezi exact la ce distanță stă linia de text */
+  padding-bottom: 4px;
+
+  @media (min-width: 969px) {
+    font-size: clamp(28px, 2.6vw, 38px);
+    margin-bottom: 28px;
+  }
 }
 
 .cause-desc {
@@ -127,4 +140,15 @@
   line-height: 1.55;
   color: #33473c;
   margin: 0;
+
+  @media (min-width: 969px) {
+    font-size: clamp(16px, 1.45vw, 21px);
+    line-height: 1.65;
+    font-weight: 500;
+  }
+
+  .cause-highlight {
+    color: #751a1a;
+    font-weight: 700;
+  }
 }

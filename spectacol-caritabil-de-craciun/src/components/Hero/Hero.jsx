@@ -1,7 +1,18 @@
 import { Link } from 'react-router-dom';
-import backgroundFrame from '../../assets/svg/frame-hero.svg'; // Asigură-te că ai exportat rama din spate
-import bowSticker from '../../assets/svg/bow-sticker.svg'; // Fundița de sus
+import { HiSparkles } from 'react-icons/hi2';
+import { FiArrowUpRight, FiArrowDown } from 'react-icons/fi';
+import backgroundFrame from '../../assets/svg/frame-hero.svg';
+import bowSticker from '../../assets/svg/bow-sticker.svg';
 import './Hero.scss';
+
+const scrollToAbout = (e) => {
+  e.preventDefault(); // Oprește "săritura" instantanee nativă a link-ului
+  const aboutSection = document.getElementById('about');
+  
+  if (aboutSection) {
+    aboutSection.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 const Hero = () => {
   return (
@@ -13,7 +24,9 @@ const Hero = () => {
       <img className="hero-bow" src={bowSticker} alt="Fundiță" />
 
       <div className="hero-content">
-        <p className="hero-subtitle">✦ O SCENĂ. O COMUNITATE. O FAPTĂ BUNĂ. ✦</p>
+        <p className="hero-subtitle">
+          <HiSparkles /> O SCENĂ. O COMUNITATE. O FAPTĂ BUNĂ. <HiSparkles />
+        </p>
         
         <h1 className="hero-title">Spectacolul Caritabil</h1>
         
@@ -27,13 +40,13 @@ const Hero = () => {
 
         <div className="hero-actions">
           <Link to="/donate" className="btn btn-primary">
-            Vreau să ajut ↗
+            Vreau să ajut <FiArrowUpRight />
           </Link>
           <a href="#about" className="btn btn-secondary">
-            Descoperă spectacolul ↓
+            Descoperă spectacolul <FiArrowDown />
           </a>
           <Link to="/artists" className="btn btn-dark">
-            Vezi programul ↗
+            Vezi programul <FiArrowUpRight />
           </Link>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { FiArrowLeft } from 'react-icons/fi';
 import './ComingSoon.scss';
 
 const ComingSoon = () => {
@@ -15,7 +16,7 @@ const ComingSoon = () => {
         </p>
         
         <Link to="/" className="coming-soon-btn">
-          &larr; Înapoi Acasă
+          <FiArrowLeft /> Înapoi Acasă
         </Link>
         
       </div>

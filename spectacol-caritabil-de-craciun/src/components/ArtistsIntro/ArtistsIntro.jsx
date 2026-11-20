@@ -1,5 +1,5 @@
-import biletFundal from '../../assets/svg/bilet-cauza.svg'; // Exportă bilețelul cu tot cu liniile din interior ca un singur SVG
-import pioneza from '../../assets/svg/bow-sticker.svg'; // Exportă pioneza/pin-ul de sus separat
+import biletFundal from '../../assets/svg/bilet-cauza.svg';
+import pioneza from '../../assets/svg/bow-sticker.svg';
 import './ArtistsIntro.scss';
 
 const ArtistsIntro = () => {
@@ -18,7 +18,6 @@ const ArtistsIntro = () => {
 
       {/* Coloana din Dreapta: Bilețelul cu Cauza */}
       <div className="artists-cause">
-        {/* Folosim SVG-ul ca fundal pentru a putea scrie text real peste el */}
         <div className="cause-card">
           <img src={pioneza} alt="" className="cause-pin" aria-hidden="true" />
           <img src={biletFundal} alt="" className="cause-bg" aria-hidden="true" />
@@ -26,8 +25,13 @@ const ArtistsIntro = () => {
           <div className="cause-content">
             <h3 className="cause-title">CAUZA SUSȚINUTĂ</h3>
             <p className="cause-desc">
-              Cauza susținută de noi este...
-              {/* Aici poți adăuga textul real al cauzei */}
+              Anul acesta, evenimentul nostru susține cei{' '}
+              <strong className="cause-highlight">
+                35 de copii internați la secția de oncologie a Spitalului „Marie Curie”
+              </strong>
+              . În locul cadourilor obișnuite de Crăciun, fiecare contribuție se
+              transformă exclusiv în sprijin concret și resurse necesare pentru
+              tratamentul și confortul lor în spital.
             </p>
           </div>
         </div>

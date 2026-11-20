@@ -5,6 +5,15 @@ import backgroundFrame from '../../assets/svg/frame-hero.svg';
 import bowSticker from '../../assets/svg/bow-sticker.svg';
 import './Hero.scss';
 
+const scrollToAbout = (e) => {
+  e.preventDefault(); // Oprește "săritura" instantanee nativă a link-ului
+  const aboutSection = document.getElementById('about');
+  
+  if (aboutSection) {
+    aboutSection.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const Hero = () => {
   return (
     <section className="hero">

@@ -1,3 +1,4 @@
+import { HiSparkles } from 'react-icons/hi2';
 import stickerImg from '../../assets/svg/bow-sticker.svg'; 
 import './ThankYou.scss';
 
@@ -6,7 +7,9 @@ const ThankYou = () => {
     <section className="thankyou-section">
       
       <div className="thankyou-content">
-        <span className="thankyou-tag">✦ &nbsp; PARTENERII BINELUI &nbsp; ✦</span>
+        <span className="thankyou-tag">
+          <HiSparkles /> &nbsp; PARTENERII BINELUI &nbsp; <HiSparkles />
+        </span>
         
         <h2 className="thankyou-title">
           În spatele fiecărui gest,<br />

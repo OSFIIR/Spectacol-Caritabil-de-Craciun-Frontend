@@ -114,10 +114,12 @@
 .team-photo {
   width: 100%;
   max-width: 1280px;
-  height: 500px;
-  object-fit: contain;
+  height: 600px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 64px 0px 64px 0px;
   display: block;
+  border: solid 2px var(--primary-color);
 
   @media (max-width: 968px) {
     height: 350px;

@@ -45,7 +45,7 @@ const Footer = () => {
           
           <nav className="footer-nav">
             <Link to="/">Acasă</Link>
-            <Link to="/artists">Artiști</Link>
+            <Link to="/artists">Artiști și Cauză</Link>
             <Link to="/sponsors">Sponsori</Link>
             <Link to="/team">Echipa</Link>
             <Link to="/contact">Contact</Link>

@@ -21,7 +21,7 @@ const Navbar = () => {
           to="/artists" 
           className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
         >
-          Artiști
+          Artiști și Cauză  
         </NavLink>
         <NavLink 
           to="/sponsors" 
